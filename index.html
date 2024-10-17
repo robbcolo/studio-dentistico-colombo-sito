@@ -48,7 +48,12 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar is-dark " >
+  <nav class="navbar is- " >
+    <style>
+      .navbar {
+        background-color: #003366;
+      }
+    </style>
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">Home</a>
@@ -60,6 +65,11 @@
       </div>
 
       <div id="navbarMenu" class="navbar-menu">
+        <style>
+          .navbar-item {
+            color: white;
+          }
+        </style>
         <div class="navbar-end">
           <a class="navbar-item is-rounded is-primary" href="#about">Su di noi</a>
           <a class="navbar-item is-rounded is-primary" href="#members">Staff</a>
@@ -100,7 +110,7 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
   <!-- Members Section -->
   <section class="section" id="members">
     <div class="container">
-      <h2 class="title has-text-centered">Our Members</h2>
+      <h2 class="title has-text-centered">Staff</h2>
 
       <!-- Vertical Grid of Images and Descriptions -->
       <div class="columns is-centered image-item">
