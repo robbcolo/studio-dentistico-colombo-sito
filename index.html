@@ -1,27 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>index</title>
-<meta name="description" content="Prova">
-<style type="text/css">/* Caratteristiche generali del corpo della pagina */
-body {
- margin: 0;
- padding: 0;
- background-color: #FFF;
- font-family: arial, verdana, sans-serif;
- color: #000;
-}
-/* caratteristiche del contenitore del codice HTML */
-.container {
- width: 80%;
- margin: 0 auto;
-}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing Colombo Store</title>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    /* Title Section Background */
+    .hero.is-primary {
+      background-image: url('images/studio_stock.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Padding between sections */
+    .section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Hover effect for images */
+    .hover-image {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .active-image {
+      transform: scale(1.1);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Space between member rows */
+    .image-item {
+      margin-bottom: 3rem; /* Increase padding between members */
+    }
+
+    /* Footer text */
+    .footer {
+      padding: 2rem 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<p>&nbsp;</p>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</div>
+  <!-- Navigation Bar -->
+  <nav class="navbar is-dark " >
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">Home</a>
+        <span class="navbar-burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item is-rounded is-primary" href="#about">About</a>
+          <a class="navbar-item is-rounded is-primary" href="#members">Members</a>
+          <a class="navbar-item is-rounded is-primary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Title Section -->
+  <section class="hero is-primary is-large">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <h1 class="title is-1">Colombo Odontoiatri</h1>
+        <h2 class="subtitle is-3">Dedicated to Excellence</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="title has-text-centered">About Us</h2>
+      <p class="content has-text-centered">
+       La Famiglia Colombo di Sicilia
+
+La famiglia Colombo è una rinomata dinastia di dentisti che opera a Catania, in Sicilia. Fondata nel 1985 da Alfredo Colombo, un odontoiatra appassionato e innovativo, la loro pratica si è rapidamente affermata come un punto di riferimento per la salute orale nella comunità.
+
+Alfredo, con il suo approccio attento e umano, ha trasmesso ai suoi figli, Roberto e Aurora, non solo l’amore per la professione, ma anche l'importanza dell'educazione e della prevenzione. Roberto, specializzato in ortodonzia, è conosciuto per la sua capacità di creare sorrisi straordinari, utilizzando le tecnologie più avanzate per garantire risultati ottimali. Aurora, invece, si è dedicata alla chirurgia orale e alla medicina estetica, portando una ventata di freschezza e modernità nella pratica familiare.
+
+Il loro studio è un ambiente accogliente e moderno, progettato per mettere i pazienti a proprio agio. I colori caldi e le decorazioni locali creano un’atmosfera familiare, dove ogni visitatore si sente come a casa. La famiglia Colombo è molto attiva nella comunità e partecipa regolarmente a eventi di sensibilizzazione sull'igiene orale, collaborando con le scuole e le associazioni locali per promuovere una corretta educazione dentale tra i giovani.
+
+La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i pazienti. Ogni membro della famiglia si impegna a rendere le visite dentistiche un'esperienza positiva, trasformando la cura dei denti in un momento di cura e benessere. Con la loro dedizione, professionalità e calore umano, la famiglia Colombo continua a scrivere una storia di successo e impegno nella sanità dentale siciliana.
+      </p>
+    </div>
+  </section>
+
+  <!-- Members Section -->
+  <section class="section" id="members">
+    <div class="container">
+      <h2 class="title has-text-centered">Our Members</h2>
+
+      <!-- Vertical Grid of Images and Descriptions -->
+      <div class="columns is-centered image-item">
+        <div class="column is-half">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <figure class="image is-256x256">
+                <img class="is-rounded hover-image" src="images/doc_stock1.jpg" alt="Member 1">
+              </figure>
+            </div>
+            <div class="column">
+              <p class="content">
+                <strong>John Doe</strong><br>
+                CEO & Founder. John leads the team with over 20 years of experience in the industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered image-item">
+        <div class="column is-half">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <figure class="image is-256x256">
+                <img class="is-rounded hover-image" src="images/doc_stock2.jpg" alt="Member 2">
+              </figure>
+            </div>
+            <div class="column">
+              <p class="content">
+                <strong>Jane Smith</strong><br>
+                Head of Operations. Jane ensures smooth execution of all our projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered image-item">
+        <div class="column is-half">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <figure class="image is-256x256">
+                <img class="is-rounded hover-image" src="images/doc_stock3.jpg" alt="Member 3">
+              </figure>
+            </div>
+            <div class="column">
+              <p class="content">
+                <strong>Michael Lee</strong><br>
+                Lead Developer. Michael is responsible for our cutting-edge technology solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered image-item">
+        <div class="column is-half">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <figure class="image is-256x256">
+                <img class="is-rounded hover-image" src="https://via.placeholder.com/128" alt="Member 4">
+              </figure>
+            </div>
+            <div class="column">
+              <p class="content">
+                <strong>Sara Wilson</strong><br>
+                Marketing Director. Sara manages our brand and outreach efforts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- Contact Section -->
+<section class="section" id="contact" style="background-color: #f9f9f9; padding: 4rem 0;">
+    <div class="container">
+      <h2 class="title has-text-centered">Contact Us</h2>
+  
+      <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+  
+          <!-- Address without Icon -->
+          <p class="content">
+            <strong>Address:</strong><br>
+            123 Main Street, City, Country
+          </p>
+  
+          <!-- Phone without Icon -->
+          <p class="content">
+            <strong>Phone:</strong><br>
+            <a href="tel:+1234567890" class="has-text-primary">+1 234 567 890</a>
+          </p>
+  
+          <!-- Get Directions Button -->
+          <p>
+            <a href="https://maps.google.com/?q=123+Bullshit+Hill" target="_blank" class="button is-primary">
+              Get Directions
+            </a>
+          </p>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for scroll interaction -->
+  <script>
+    // Select all images
+    const images = document.querySelectorAll('.hover-image');
+
+    // Callback function when the image is intersecting
+    const imageObserverCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add the 'active-image' class when the image comes into view
+          entry.target.classList.add('active-image');
+        } else {
+          // Remove the 'active-image' class when the image is out of view
+          entry.target.classList.remove('active-image');
+        }
+      });
+    };
+
+    // Set up the IntersectionObserver
+    const observer = new IntersectionObserver(imageObserverCallback, {
+      threshold: 0.8, // Trigger when % of the image is in view
+    });
+
+    // Observe each image
+    images.forEach(image => {
+      observer.observe(image);
+    });
+  </script>
 </body>
 </html>
