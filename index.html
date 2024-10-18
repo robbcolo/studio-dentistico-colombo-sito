@@ -87,6 +87,13 @@
       /* Change text color when menu is active */
     }
 
+    .navbar-burger {
+      padding: 0.75rem;
+      /* Increase padding for more clickable area */
+      transform: scale(1.5);
+      /* Scale the burger icon */
+    }
+
     .navbar-burger span {
       background-color: #f0f0f0;
       /* Change this to your desired color */
@@ -186,167 +193,173 @@
       </p>
     </div>
   </section>
-<!-- Custom CSS -->
-<style>
-  /* Custom styling for the treatment items */
-  .treatment-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    transition: transform 0.2s ease;
-    height: 100%; /* Ensure all cards take full height */
-  }
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styling for the treatment items */
+    .treatment-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.5rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease;
+      height: 100%;
+      /* Ensure all cards take full height */
+    }
 
-  /* Add hover effect */
-  .treatment-item:hover {
-    transform: scale(1.08);
-  }
+    /* Add hover effect */
+    .treatment-item:hover {
+      transform: scale(1.08);
+    }
 
-  /* Flexbox container to align image and text */
-  .treatment-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Space between image and text */
-    height: 100%; /* Ensure the content container fills the card height */
-  }
+    /* Flexbox container to align image and text */
+    .treatment-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      /* Space between image and text */
+      height: 100%;
+      /* Ensure the content container fills the card height */
+    }
 
-  /* Image styling inside treatment item */
-  .treatment-item img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    align-self: center;
-  }
+    /* Image styling inside treatment item */
+    .treatment-item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      align-self: center;
+    }
 
-  /* Title styling */
-  h2.title {
-    color: #003366;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
+    /* Title styling */
+    h2.title {
+      color: #003366;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
 
-  /* Larger text for treatment names */
-  .treatment-text {
-    font-size: 1.5em;
-    color: #333;
-    font-weight: 600;
-    text-align: center;
-  }
+    /* Larger text for treatment names */
+    .treatment-text {
+      font-size: 1.5em;
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+    }
 
-  /* Flexbox centering the entire container */
-  .columns.is-centered {
-    justify-content: center; /* Center the columns */
-  }
+    /* Flexbox centering the entire container */
+    .columns.is-centered {
+      justify-content: center;
+      /* Center the columns */
+    }
 
-  /* Animation for in-view effect (only applies on mobile) */
-.treatment-item.in-view {
-  transform: scale(1.05); /* Scale effect when in view */
-  transition: transform 1.0s ease; /* Smooth transition */
-}
-</style>
+    /* Animation for in-view effect (only applies on mobile) */
+    .treatment-item.in-view {
+      transform: scale(1.05);
+      /* Scale effect when in view */
+      transition: transform 1.0s ease;
+      /* Smooth transition */
+    }
+  </style>
 
-<body>
-  <!-- Treatments Section -->
-  <section class="section" id="treatments">
-    <div class="container">
-      <h2 class="title has-text-centered">I nostri trattamenti</h2>
+  <body>
+    <!-- Treatments Section -->
+    <section class="section" id="treatments">
+      <div class="container">
+        <h2 class="title has-text-centered">I nostri trattamenti</h2>
 
-      <!-- Grid for treatments -->
-      <div class="columns is-multiline is-centered">
-        <!-- Each treatment item -->
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 1">
-            <span class="treatment-text">Odontoiatria conservativa</span>
+        <!-- Grid for treatments -->
+        <div class="columns is-multiline is-centered">
+          <!-- Each treatment item -->
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 1">
+              <span class="treatment-text">Odontoiatria conservativa</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 2">
-            <span class="treatment-text">Endodonzia</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 2">
+              <span class="treatment-text">Endodonzia</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 3">
-            <span class="treatment-text">Ortodonzia</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 3">
+              <span class="treatment-text">Ortodonzia</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 4">
-            <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 4">
+              <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 5">
-            <span class="treatment-text">Chirurgia orale</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 5">
+              <span class="treatment-text">Chirurgia orale</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 6">
-            <span class="treatment-text">Implantologia</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 6">
+              <span class="treatment-text">Implantologia</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 7">
-            <span class="treatment-text">Sbiancamento dentale</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 7">
+              <span class="treatment-text">Sbiancamento dentale</span>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-12-mobile is-4-tablet is-3-desktop">
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 8">
-            <span class="treatment-text">Protesi</span>
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="treatment-item card">
+              <img src="https://via.placeholder.com/70" alt="Treatment 8">
+              <span class="treatment-text">Protesi</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</body>
+    </section>
+  </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const treatmentItems = document.querySelectorAll('.treatment-item');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const treatmentItems = document.querySelectorAll('.treatment-item');
 
-    // Check if the screen width is mobile size (adjust as needed)
-    if (window.innerWidth <= 768) {
-      // Create an intersection observer
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          } else {
-            entry.target.classList.remove('in-view');
-          }
+      // Check if the screen width is mobile size (adjust as needed)
+      if (window.innerWidth <= 768) {
+        // Create an intersection observer
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            } else {
+              entry.target.classList.remove('in-view');
+            }
+          });
+        }, {
+          threshold: 0.5 // Trigger when 50% of the element is visible
         });
-      }, {
-        threshold: 0.5 // Trigger when 50% of the element is visible
-      });
 
-      // Observe each treatment item for mobile screens
-      treatmentItems.forEach(item => {
-        observer.observe(item);
-      });
-    }
-  });
-</script>
+        // Observe each treatment item for mobile screens
+        treatmentItems.forEach(item => {
+          observer.observe(item);
+        });
+      }
+    });
+  </script>
 
 
 
