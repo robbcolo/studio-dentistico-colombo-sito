@@ -43,6 +43,12 @@
       padding: 2rem 0;
       text-align: center;
     }
+    /* Rounded corners for the card */
+    .card {
+      border-radius: 15px; /* Adjust the radius value as needed */
+      overflow: hidden; /* Ensures content like images don't overflow the card's rounded edges */
+    }
+    
     
   </style>
 </head>
@@ -106,59 +112,105 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
       </p>
     </div>
   </section>
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styling for the treatment items */
+    .treatment-item {
+      display: flex;
+      align-items: center;     /* Centers image and text vertically */
+      padding: 1.5rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
 
-  <!DOCTYPE html>
-  <html lang="it">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Dentistico Colombo - I nostri trattamenti</title>
-    <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        margin: 20px;
-      }
-  
-      h1 {
-        color: #003366;
-        text-align: center;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-      }
-  
-      .treatments-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Tre colonne */
-        gap: 20px; /* Spaziatura tra le colonne */
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-  
-      .treatment-item {
-        font-size: 1.2em;
-        color: #333333;
-      }
-    </style>
-  </head>
-  <body>
-  
-    <h1>I nostri trattamenti</h1>
-    
-    <div class="treatments-container">
-      <div class="treatment-item">Odontoiatria conservativa</div>
-      <div class="treatment-item">Endodonzia</div>
-      <div class="treatment-item">Ortodonzia</div>
-      <div class="treatment-item">Ortodonzia invisibile Invisalign®</div>
-      <div class="treatment-item">Chirurgia orale</div>
-      <div class="treatment-item">Implantologia</div>
-      <div class="treatment-item">Sbiancamento dentale</div>
-      <div class="treatment-item">Protesi</div>
+    /* Image styling inside treatment item */
+    .treatment-item img {
+      width: 70px;  /* Image size */
+      height: 70px; /* Make sure it's square */
+      margin-right: 2.0rem; /* Space between image and text */
+      border-radius: 50%;   /* Make the image circular */
+    }
+
+    /* Title styling */
+    h2.title {
+      color: #003366;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    /* Container to ensure 2 rows of 4 items */
+    .treatments-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      gap: 20px;
+    }
+
+    /* Larger text for treatment names */
+    .treatment-text {
+      font-size: 1.5em;  /* Increase text size */
+      color: #333;
+      font-weight: 600;
+      margin: 0; /* Remove default margins */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Treatments Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title has-text-centered">I nostri trattamenti</h2>
+      
+      <!-- Grid for treatments -->
+      <div class="treatments-container">
+        <!-- Each treatment item -->
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 1">
+          <span class="treatment-text">Odontoiatria conservativa</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 2">
+          <span class="treatment-text">Endodonzia</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 3">
+          <span class="treatment-text">Ortodonzia</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 4">
+          <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 5">
+          <span class="treatment-text">Chirurgia orale</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 6">
+          <span class="treatment-text">Implantologia</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 7">
+          <span class="treatment-text">Sbiancamento dentale</span>
+        </div>
+
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 8">
+          <span class="treatment-text">Protesi</span>
+        </div>
+      </div>
     </div>
-  
-  </body>
-  </html>
-  
+  </section>
+
+</body>
+
 
 
   <!-- Members Section -->
