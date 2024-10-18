@@ -134,6 +134,21 @@
         100% { transform: rotate(0deg); }
       }
 
+      @keyframes scale {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); } /* Scale up */
+    }
+    @keyframes scaleAndTilt {
+        0% { transform: rotate(0deg) scale(1); }
+        20% { transform: rotate(5deg) scale(1.2); }
+        40% { transform: rotate(-5deg) scale(1.2); }
+        60% { transform: rotate(5deg) scale(1.2); }
+        80% { transform: rotate(-5deg) scale(1.2); }
+        100% { transform: rotate(0deg) scale(1); }
+    }
+
+    
+
   </style>
 </head>
 
@@ -200,9 +215,14 @@
         <h1 class="title is-1 " style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
         <h2 class="subtitle is-3 " style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
-          <a href="#contact" class="button is-primary" style="animation: tilt 0.5s; animation-iteration-count: 4;animation-delay: 1.5s;">Contattaci</a>
       </div>
     </div>
+  </section>
+
+  <section class="section ">
+    <div class="container has-text-centered">
+    <a href="#contact" class="button is-primary" style="animation: scaleAndTilt 1s ease; animation-iteration-count: 1;animation-delay: 1.5s;">Contattaci</a>
+  </div>
   </section>
 
  
