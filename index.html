@@ -126,6 +126,13 @@
         transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
       }
 
+      @keyframes tilt {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        50% { transform: rotate(-5deg); }
+        75% { transform: rotate(5deg); }
+        100% { transform: rotate(0deg); }
+      }
 
   </style>
 </head>
@@ -193,9 +200,12 @@
         <h1 class="title is-1 " style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
         <h2 class="subtitle is-3 " style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
+          <a href="#contact" class="button is-primary" style="animation: tilt 0.5s; animation-iteration-count: 4;animation-delay: 1.5s;">Contattaci</a>
       </div>
     </div>
   </section>
+
+ 
 
   <!-- About Section -->
   <section class="section" id="about">
