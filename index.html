@@ -8,6 +8,9 @@
 
   <!-- Bulma CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/solid.css" rel="stylesheet" />
 
   <!-- Custom CSS -->
   <style>
@@ -104,15 +107,46 @@
       background-color: #f0f0f0;
       /* Change this to your desired color when active */
     }
+
+    /* Define keyframe animation */
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0; /* Start invisible */
+          transform: scale(0.5); /* Start smaller */
+        }
+        100% {
+          opacity: 1; /* End fully visible */
+          transform: scale(1); /* End at normal size */
+        }
+      }
+
+      /* Add transition to the animated navbar item */
+      .animated-home {
+        animation: fadeInScale 2.0s ease forwards; /* Apply animation on load */
+        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+      }
+
+
   </style>
 </head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add a delay before applying the animation class
+    setTimeout(function() {
+      document.querySelector('.animated-home').classList.add('fade-in');
+    }, 1000);
+  });
+</script>
 
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">Home</a>
+        <a class="navbar-item animated-home" href="#">
+          <i class="fa-solid fa-tooth " style="font-size: 1.5em;"></i> 
+        </a>
         <span class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -155,9 +189,9 @@
   <!-- Title Section -->
   <section class="hero is-primary is-large">
     <div class="hero-body has-text-centered">
-      <div class="container">
-        <h1 class="title is-1" style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
-        <h2 class="subtitle is-3" style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
+      <div class="container animated-home">
+        <h1 class="title is-1 " style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
+        <h2 class="subtitle is-3 " style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
       </div>
     </div>
@@ -455,12 +489,13 @@
           <!-- Phone without Icon -->
           <p class="content">
             <strong>Telefono:</strong><br>
-            <a href="tel:+39094122749" class="has-text-primary">0941 22749</a>
+            <a href="tel:+39094122749" class="has-text-primary"><i class="fa-solid fa-phone"></i>&nbsp; 0941 22749</a><br>
+            <a href="tel:+393791523085" class="has-text-primary"><i class="fa-solid fa-phone"></i>&nbsp; 379 1523085</a>
           </p>
 
           <p class="content">
             <strong>Whatsapp:</strong><br>
-            <a href="tel:+393791523085" class="has-text-primary">379 1523085</a>
+            <a href="https://wa.me/393791523085" class="has-text-primary"><i class="fa-brands fa-whatsapp"></i> 379 1523085</a>
           </p>
 
           <div style="margin-bottom: 20px;"></div>
@@ -469,16 +504,16 @@
           <!-- Address without Icon -->
           <p class="content">
             <strong>Indirizzo:</strong><br>
-            Via Fontanelle, SNC, Patti (ME)
+            
+            Via Fontanelle, SNC, Patti (ME) 
+            <br>
+            <a href="https://www.google.com/maps/place/Studio+Dentistico+Colombo/@38.1395501,14.9683558,19z/data=!4m6!3m5!1s0x13169c5bac9ea239:0xd3cf9836a4ca3755!8m2!3d38.1391602!4d14.9684793!16s%2Fg%2F1hc47jp95?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" class="button is-primary">
+            Direzioni &nbsp;<i class="fa-solid fa-diamond-turn-right" style="font-size: 1.2em;" ></i>
+          </a>
           </p>
 
-          <!-- Get Directions Button -->
-          <p>
-            <a href="https://www.google.com/maps/place/Studio+Dentistico+Colombo/@38.1395501,14.9683558,19z/data=!4m6!3m5!1s0x13169c5bac9ea239:0xd3cf9836a4ca3755!8m2!3d38.1391602!4d14.9684793!16s%2Fg%2F1hc47jp95?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank" class="button is-primary">
-              Indicazioni
-            </a>
-          </p>
+
           <div style="margin-bottom: 20px;"></div>
 
           <!-- Responsive Iframe Container -->
