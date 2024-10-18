@@ -25,6 +25,7 @@
       background-image: url('images/studio_stock.jpg');
       background-size: cover;
       background-position: center;
+      background-color: #f0f0f0;
     }
 
     /* Padding between sections */
@@ -190,25 +191,27 @@
     /* Custom styling for the treatment items */
     .treatment-item {
       display: flex;
-      align-items: center;
-      /* Centers image and text vertically */
+      flex-direction: column; /* Change to vertical layout */
+      align-items: center; /* Center content horizontally */
       padding: 1.5rem;
       background-color: #ffffff;
       border-radius: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 1.5rem;
+      transition: transform 0.2s ease; /* Adding a hover effect */
+    }
+
+    /* Add hover effect */
+    .treatment-item:hover {
+      transform: scale(1.03);
     }
 
     /* Image styling inside treatment item */
     .treatment-item img {
-      width: 70px;
-      /* Image size */
-      height: 70px;
-      /* Make sure it's square */
-      margin-right: 2.0rem;
-      /* Space between image and text */
-      border-radius: 50%;
-      /* Make the image circular */
+      width: 70px; /* Image size */
+      height: 70px; /* Make sure it's square */
+      margin-bottom: 1rem; /* Space between image and text */
+      border-radius: 50%; /* Make the image circular */
     }
 
     /* Title styling */
@@ -218,78 +221,91 @@
       margin-bottom: 2rem;
     }
 
-    /* Container to ensure 2 rows of 4 items */
+    /* Container to ensure a responsive grid */
     .treatments-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      /* Two columns */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
       gap: 20px;
     }
 
     /* Larger text for treatment names */
     .treatment-text {
-      font-size: 1.5em;
-      /* Increase text size */
+      font-size: 1.5em; /* Increase text size */
       color: #333;
       font-weight: 600;
-      margin: 0;
-      /* Remove default margins */
+      margin: 0; /* Remove default margins */
+      text-align: center; /* Center the text */
     }
   </style>
-  </head>
 
   <body>
 
     <!-- Treatments Section -->
-    <section class="section" id="treatments">
-      <div class="container">
-        <h2 class="title has-text-centered">I nostri trattamenti</h2>
+<section class="section" id="treatments">
+  <div class="container">
+    <h2 class="title has-text-centered">I nostri trattamenti</h2>
 
-        <!-- Grid for treatments -->
-        <div class="treatments-container">
-          <!-- Each treatment item -->
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 1">
-            <span class="treatment-text">Odontoiatria conservativa</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 2">
-            <span class="treatment-text">Endodonzia</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 3">
-            <span class="treatment-text">Ortodonzia</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 4">
-            <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 5">
-            <span class="treatment-text">Chirurgia orale</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 6">
-            <span class="treatment-text">Implantologia</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 7">
-            <span class="treatment-text">Sbiancamento dentale</span>
-          </div>
-
-          <div class="treatment-item card">
-            <img src="https://via.placeholder.com/70" alt="Treatment 8">
-            <span class="treatment-text">Protesi</span>
-          </div>
+    <!-- Grid for treatments -->
+    <div class="columns is-multiline">
+      <!-- Each treatment item -->
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 1">
+          <span class="treatment-text">Odontoiatria conservativa</span>
         </div>
       </div>
-    </section>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 2">
+          <span class="treatment-text">Endodonzia</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 3">
+          <span class="treatment-text">Ortodonzia</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 4">
+          <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 5">
+          <span class="treatment-text">Chirurgia orale</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 6">
+          <span class="treatment-text">Implantologia</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 7">
+          <span class="treatment-text">Sbiancamento dentale</span>
+        </div>
+      </div>
+
+      <div class="column is-6-mobile is-4-tablet is-3-desktop">
+        <div class="treatment-item card">
+          <img src="https://via.placeholder.com/70" alt="Treatment 8">
+          <span class="treatment-text">Protesi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   </body>
 
@@ -380,8 +396,8 @@
       <div class="columns is-centered">
         <div class="column is-half has-text-centered">
 
-          
-          
+
+
 
           <!-- Phone without Icon -->
           <p class="content">
