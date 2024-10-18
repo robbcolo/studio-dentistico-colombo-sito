@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,21 @@
   <!-- Custom CSS -->
   <style>
     /*fix overflow*/
-    html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* Prevent horizontal overflow */
     }
+
     /* Title Section Background */
     .hero.is-primary {
       background-image: url('images/studio_stock.jpg');
       background-size: cover;
       background-position: center;
     }
-    
+
     /* Padding between sections */
     .section {
       padding-top: 4rem;
@@ -32,17 +36,19 @@
 
     /* Hover effect for images */
     .hover-image {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 1s ease, box-shadow 0.4s ease;
     }
 
     .active-image {
       transform: scale(1.1);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 1s ease;
     }
-    
+
     /* Space between member rows */
     .image-item {
-      margin-bottom: 3rem; /* Increase padding between members */
+      margin-bottom: 3rem;
+      /* Increase padding between members */
     }
 
     /* Footer text */
@@ -50,41 +56,66 @@
       padding: 2rem 0;
       text-align: center;
     }
+
     /* Rounded corners for the card */
     .card {
-      border-radius: 15px; /* Adjust the radius value as needed */
-      overflow: hidden; /* Ensures content like images don't overflow the card's rounded edges */
+      border-radius: 15px;
+      /* Adjust the radius value as needed */
+      overflow: hidden;
+      /* Ensures content like images don't overflow the card's rounded edges */
     }
-    
-    
+
+    .navbar {
+      background-color: #003366;
+    }
+
+    .navbar-item {
+      color: #f0f0f0;
+      /* Default text color */
+      transition: color 0.3s ease;
+      /* Smooth transition */
+    }
+
+    .navbar-item:hover {
+      color: #00D1B2;
+      /* Highlight color on hover */
+    }
+
+    .navbar-menu.is-active .navbar-item {
+      color: #003366;
+      /* Change text color when menu is active */
+    }
+
+    .navbar-burger span {
+      background-color: #f0f0f0;
+      /* Change this to your desired color */
+    }
+
+    /* Change color of the burger icon when active */
+    .navbar-burger.is-active span {
+      background-color: #f0f0f0;
+      /* Change this to your desired color when active */
+    }
   </style>
 </head>
+
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar is- " >
-    <style>
-      .navbar {
-        background-color: #003366;
-      }
-    </style>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">Home</a>
-        <span class="navbar-burger" data-target="navbarMenu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <span class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </span>
       </div>
 
       <div id="navbarMenu" class="navbar-menu">
-        <style>
-          .navbar-item {
-            color: white;
-          }
-        </style>
         <div class="navbar-end">
           <a class="navbar-item is-rounded is-primary" href="#about">Su di noi</a>
+          <a class="navbar-item is-rounded is-primary" href="#treatments">Trattamenti</a>
           <a class="navbar-item is-rounded is-primary" href="#members">Staff</a>
           <a class="navbar-item is-rounded is-primary" href="#contact">Contattaci</a>
         </div>
@@ -92,12 +123,34 @@
     </div>
   </nav>
 
+  <!-- Bulma JS for Burger Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const burgers = document.querySelectorAll('.navbar-burger');
+
+      // Add a click event to each of them
+      burgers.forEach(burger => {
+        burger.addEventListener('click', () => {
+          // Get the target from the "data-target" attribute
+          const target = burger.dataset.target;
+          const menu = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          burger.classList.toggle('is-active');
+          menu.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
+
   <!-- Title Section -->
   <section class="hero is-primary is-large">
     <div class="hero-body has-text-centered">
       <div class="container">
         <h1 class="title is-1" style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
-        <h2 class="subtitle is-3" style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il tuo sorriso, da generazioni</h2>
+        <h2 class="subtitle is-3" style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
+          tuo sorriso, da generazioni</h2>
       </div>
     </div>
   </section>
@@ -107,15 +160,28 @@
     <div class="container">
       <h2 class="title has-text-centered">Su di noi</h2>
       <p class="content has-text-centered">
-       La Famiglia Colombo di Sicilia
+        La Famiglia Colombo di Sicilia
 
-La famiglia Colombo è una rinomata dinastia di dentisti che opera a Catania, in Sicilia. Fondata nel 1985 da Alfredo Colombo, un odontoiatra appassionato e innovativo, la loro pratica si è rapidamente affermata come un punto di riferimento per la salute orale nella comunità.
+        La famiglia Colombo è una rinomata dinastia di dentisti che opera a Catania, in Sicilia. Fondata nel 1985 da
+        Alfredo Colombo, un odontoiatra appassionato e innovativo, la loro pratica si è rapidamente affermata come un
+        punto di riferimento per la salute orale nella comunità.
 
-Alfredo, con il suo approccio attento e umano, ha trasmesso ai suoi figli, Roberto e Aurora, non solo l’amore per la professione, ma anche l'importanza dell'educazione e della prevenzione. Roberto, specializzato in ortodonzia, è conosciuto per la sua capacità di creare sorrisi straordinari, utilizzando le tecnologie più avanzate per garantire risultati ottimali. Aurora, invece, si è dedicata alla chirurgia orale e alla medicina estetica, portando una ventata di freschezza e modernità nella pratica familiare.
+        Alfredo, con il suo approccio attento e umano, ha trasmesso ai suoi figli, Roberto e Aurora, non solo l’amore
+        per la professione, ma anche l'importanza dell'educazione e della prevenzione. Roberto, specializzato in
+        ortodonzia, è conosciuto per la sua capacità di creare sorrisi straordinari, utilizzando le tecnologie più
+        avanzate per garantire risultati ottimali. Aurora, invece, si è dedicata alla chirurgia orale e alla medicina
+        estetica, portando una ventata di freschezza e modernità nella pratica familiare.
 
-Il loro studio è un ambiente accogliente e moderno, progettato per mettere i pazienti a proprio agio. I colori caldi e le decorazioni locali creano un’atmosfera familiare, dove ogni visitatore si sente come a casa. La famiglia Colombo è molto attiva nella comunità e partecipa regolarmente a eventi di sensibilizzazione sull'igiene orale, collaborando con le scuole e le associazioni locali per promuovere una corretta educazione dentale tra i giovani.
+        Il loro studio è un ambiente accogliente e moderno, progettato per mettere i pazienti a proprio agio. I colori
+        caldi e le decorazioni locali creano un’atmosfera familiare, dove ogni visitatore si sente come a casa. La
+        famiglia Colombo è molto attiva nella comunità e partecipa regolarmente a eventi di sensibilizzazione
+        sull'igiene orale, collaborando con le scuole e le associazioni locali per promuovere una corretta educazione
+        dentale tra i giovani.
 
-La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i pazienti. Ogni membro della famiglia si impegna a rendere le visite dentistiche un'esperienza positiva, trasformando la cura dei denti in un momento di cura e benessere. Con la loro dedizione, professionalità e calore umano, la famiglia Colombo continua a scrivere una storia di successo e impegno nella sanità dentale siciliana.
+        La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i pazienti. Ogni membro della
+        famiglia si impegna a rendere le visite dentistiche un'esperienza positiva, trasformando la cura dei denti in un
+        momento di cura e benessere. Con la loro dedizione, professionalità e calore umano, la famiglia Colombo continua
+        a scrivere una storia di successo e impegno nella sanità dentale siciliana.
       </p>
     </div>
   </section>
@@ -124,7 +190,8 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
     /* Custom styling for the treatment items */
     .treatment-item {
       display: flex;
-      align-items: center;     /* Centers image and text vertically */
+      align-items: center;
+      /* Centers image and text vertically */
       padding: 1.5rem;
       background-color: #ffffff;
       border-radius: 10px;
@@ -134,10 +201,14 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
 
     /* Image styling inside treatment item */
     .treatment-item img {
-      width: 70px;  /* Image size */
-      height: 70px; /* Make sure it's square */
-      margin-right: 2.0rem; /* Space between image and text */
-      border-radius: 50%;   /* Make the image circular */
+      width: 70px;
+      /* Image size */
+      height: 70px;
+      /* Make sure it's square */
+      margin-right: 2.0rem;
+      /* Space between image and text */
+      border-radius: 50%;
+      /* Make the image circular */
     }
 
     /* Title styling */
@@ -150,73 +221,77 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
     /* Container to ensure 2 rows of 4 items */
     .treatments-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      grid-template-columns: repeat(2, 1fr);
+      /* Two columns */
       gap: 20px;
     }
 
     /* Larger text for treatment names */
     .treatment-text {
-      font-size: 1.5em;  /* Increase text size */
+      font-size: 1.5em;
+      /* Increase text size */
       color: #333;
       font-weight: 600;
-      margin: 0; /* Remove default margins */
+      margin: 0;
+      /* Remove default margins */
     }
   </style>
-</head>
-<body>
+  </head>
 
-  <!-- Treatments Section -->
-  <section class="section">
-    <div class="container">
-      <h2 class="title has-text-centered">I nostri trattamenti</h2>
-      
-      <!-- Grid for treatments -->
-      <div class="treatments-container">
-        <!-- Each treatment item -->
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 1">
-          <span class="treatment-text">Odontoiatria conservativa</span>
-        </div>
+  <body>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 2">
-          <span class="treatment-text">Endodonzia</span>
-        </div>
+    <!-- Treatments Section -->
+    <section class="section" id="treatments">
+      <div class="container">
+        <h2 class="title has-text-centered">I nostri trattamenti</h2>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 3">
-          <span class="treatment-text">Ortodonzia</span>
-        </div>
+        <!-- Grid for treatments -->
+        <div class="treatments-container">
+          <!-- Each treatment item -->
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 1">
+            <span class="treatment-text">Odontoiatria conservativa</span>
+          </div>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 4">
-          <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
-        </div>
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 2">
+            <span class="treatment-text">Endodonzia</span>
+          </div>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 5">
-          <span class="treatment-text">Chirurgia orale</span>
-        </div>
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 3">
+            <span class="treatment-text">Ortodonzia</span>
+          </div>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 6">
-          <span class="treatment-text">Implantologia</span>
-        </div>
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 4">
+            <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+          </div>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 7">
-          <span class="treatment-text">Sbiancamento dentale</span>
-        </div>
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 5">
+            <span class="treatment-text">Chirurgia orale</span>
+          </div>
 
-        <div class="treatment-item card">
-          <img src="https://via.placeholder.com/70" alt="Treatment 8">
-          <span class="treatment-text">Protesi</span>
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 6">
+            <span class="treatment-text">Implantologia</span>
+          </div>
+
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 7">
+            <span class="treatment-text">Sbiancamento dentale</span>
+          </div>
+
+          <div class="treatment-item card">
+            <img src="https://via.placeholder.com/70" alt="Treatment 8">
+            <span class="treatment-text">Protesi</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</body>
+  </body>
 
 
 
@@ -247,7 +322,7 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
           </div>
         </div>
       </div>
-      
+
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="card">
@@ -269,7 +344,7 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
           </div>
         </div>
       </div>
-      
+
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="card">
@@ -291,29 +366,47 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
           </div>
         </div>
       </div>
-      
+
 
 
     </div>
   </section>
 
-<!-- Contact Section -->
-<section class="section" id="contact" style="background-color: #f9f9f9; padding: 4rem 0;">
+  <!-- Contact Section -->
+  <section class="section" id="contact" style="background-color: #f9f9f9; padding: 4rem 0;">
     <div class="container">
       <h2 class="title has-text-centered">Contattaci</h2>
-  
+
       <div class="columns is-centered">
         <div class="column is-half has-text-centered">
-  
+
+          
+          
+
+          <!-- Phone without Icon -->
+          <p class="content">
+            <strong>Telefono:</strong><br>
+            <a href="tel:+39094122749" class="has-text-primary">0941 22749</a>
+          </p>
+
+          <p class="content">
+            <strong>Whatsapp:</strong><br>
+            <a href="tel:+393791523085" class="has-text-primary">379 1523085</a>
+          </p>
+
+          <div style="margin-bottom: 20px;"></div>
+          <div style="margin-bottom: 20px;"></div>
+
           <!-- Address without Icon -->
           <p class="content">
             <strong>Indirizzo:</strong><br>
             Via Fontanelle, SNC, Patti (ME)
           </p>
-  
+
           <!-- Get Directions Button -->
           <p>
-            <a href="https://www.google.com/maps/place/Studio+Dentistico+Colombo/@38.1395501,14.9683558,19z/data=!4m6!3m5!1s0x13169c5bac9ea239:0xd3cf9836a4ca3755!8m2!3d38.1391602!4d14.9684793!16s%2Fg%2F1hc47jp95?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="button is-primary">
+            <a href="https://www.google.com/maps/place/Studio+Dentistico+Colombo/@38.1395501,14.9683558,19z/data=!4m6!3m5!1s0x13169c5bac9ea239:0xd3cf9836a4ca3755!8m2!3d38.1391602!4d14.9684793!16s%2Fg%2F1hc47jp95?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank" class="button is-primary">
               Indicazioni
             </a>
           </p>
@@ -322,27 +415,13 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
           <!-- Responsive Iframe Container -->
           <div style="position: relative; padding-top: 56.25%; /* 16:9 Aspect Ratio */ overflow: hidden;">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.0444164788314!2d14.96590437640895!3d38.13916017189575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13169c5bac9ea239%3A0xd3cf9836a4ca3755!2sStudio%20Dentistico%20Colombo!5e0!3m2!1sit!2sit!4v1729200452279!5m2!1sit!2sit"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                allowfullscreen=""
-                loading="lazy">
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.0444164788314!2d14.96590437640895!3d38.13916017189575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13169c5bac9ea239%3A0xd3cf9836a4ca3755!2sStudio%20Dentistico%20Colombo!5e0!3m2!1sit!2sit!4v1729200452279!5m2!1sit!2sit"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen=""
+              loading="lazy">
             </iframe>
-        </div>
-        <div style="margin-bottom: 20px;"></div>
-  <div style="margin-bottom: 20px;"></div>
-         
-          <!-- Phone without Icon -->
-          <p class="content">
-            <strong>Telefono:</strong><br>
-            <a href="tel:+39094122749" class="has-text-primary">0941 22749</a>
-          </p>
-         
-          <p class="content">
-            <strong>Whatsapp:</strong><br>
-            <a href="tel:+393791523085" class="has-text-primary">379 1523085</a>
-           </p>
-  
           </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -374,7 +453,7 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
 
     // Set up the IntersectionObserver
     const observer = new IntersectionObserver(imageObserverCallback, {
-      threshold: 0.8, // Trigger when % of the image is in view
+      threshold: 0.7, // Trigger when % of the image is in view
     });
 
     // Observe each image
@@ -383,4 +462,5 @@ La filosofia dei Colombo si basa sull'importanza di un rapporto di fiducia con i
     });
   </script>
 </body>
+
 </html>
