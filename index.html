@@ -186,13 +186,12 @@
       </p>
     </div>
   </section>
-  <!-- Custom CSS -->
+<!-- Custom CSS -->
 <style>
   /* Custom styling for the treatment items */
   .treatment-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     padding: 1.5rem;
     background-color: #ffffff;
@@ -208,12 +207,22 @@
     transform: scale(1.03);
   }
 
+  /* Flexbox container to align image and text */
+  .treatment-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Space between image and text */
+    height: 100%; /* Ensure the content container fills the card height */
+  }
+
   /* Image styling inside treatment item */
   .treatment-item img {
     width: 70px;
     height: 70px;
-    margin-bottom: 1rem;
     border-radius: 50%;
+    margin-bottom: 1rem;
+    align-self: center;
   }
 
   /* Title styling */
@@ -228,7 +237,6 @@
     font-size: 1.5em;
     color: #333;
     font-weight: 600;
-    margin: 0;
     text-align: center;
   }
 
