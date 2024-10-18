@@ -244,6 +244,12 @@
   .columns.is-centered {
     justify-content: center; /* Center the columns */
   }
+
+  /* Animation for in-view effect (only applies on mobile) */
+.treatment-item.in-view {
+  transform: scale(1.03); /* Scale effect when in view */
+  transition: transform 0.5s ease; /* Smooth transition */
+}
 </style>
 
 <body>
@@ -314,6 +320,33 @@
     </div>
   </section>
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const treatmentItems = document.querySelectorAll('.treatment-item');
+
+    // Check if the screen width is mobile size (adjust as needed)
+    if (window.innerWidth <= 768) {
+      // Create an intersection observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      }, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+      });
+
+      // Observe each treatment item for mobile screens
+      treatmentItems.forEach(item => {
+        observer.observe(item);
+      });
+    }
+  });
+</script>
 
 
 
