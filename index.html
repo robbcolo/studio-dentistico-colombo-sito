@@ -236,9 +236,10 @@
       border-radius: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 1.5rem;
-      transition: transform 0.2s ease;
+      transition: transform 0.7s ease;
       height: 100%;
       /* Ensure all cards take full height */
+      position: relative; /* Ensure the icon is positioned correctly */
     }
 
     /* Add hover effect */
@@ -294,6 +295,63 @@
       transition: transform 1.0s ease;
       /* Smooth transition */
     }
+    /* Initially hide the description */
+.treatment-description {
+  
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 1s ease, max-height 1.2s ease, visibility 0s 1.0s;
+}
+
+/* Style for the toggle icon */
+.toggle-icon {
+  font-size: 1.2em; /* Adjust size */
+  position: absolute; /* Position it relative to the card */
+  right: 20px; /* Adjust as needed */
+  top: 20px; /* Adjust as needed */
+  transition: transform 0.8s ease; /* Smooth rotation */
+  opacity: 0.3;
+}
+
+/* Show the description on hover (desktop) */
+@media (min-width: 769px) {
+  .treatment-item:hover .treatment-description {
+    
+    opacity: 1;
+    max-height: 100px; /* Adjust this as needed */
+    visibility: visible; /* Make it visible when hovered */
+    transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s; /* Transition and visibility change */
+  }
+  .treatment-item:hover .toggle-icon {
+  transform: rotate(180deg); /* Rotate the icon */
+  transition: transform 0.8s ease;
+}
+  .treatment-item:hover {
+    transform: scale(1.08);
+    height: auto; /* Ensure it expands with content */
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .treatment-item.clicked .treatment-description {
+    opacity: 1;
+    max-height: 200px; /* Adjust as needed */
+    visibility: visible;
+    transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s; /* Transition and visibility change */
+  }
+  /* Rotate the icon when clicked */
+.treatment-item.clicked .toggle-icon {
+  transform: rotate(180deg); /* Rotate the icon */
+  transition: transform 0.8s ease;
+}
+  
+}
+
+
+
+
+
   </style>
 
   <body>
@@ -309,6 +367,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 1">
               <span class="treatment-text">Odontoiatria conservativa</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -316,6 +378,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 2">
               <span class="treatment-text">Endodonzia</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -323,6 +389,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 3">
               <span class="treatment-text">Ortodonzia</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -330,6 +400,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 4">
               <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -337,6 +411,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 5">
               <span class="treatment-text">Chirurgia orale</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -344,6 +422,10 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 6">
               <span class="treatment-text">Implantologia</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
@@ -351,13 +433,21 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 7">
               <span class="treatment-text">Sbiancamento dentale</span>
+              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 8">
+              <i class="fas fa-chevron-down toggle-icon"></i> 
               <span class="treatment-text">Protesi</span>
+              <p class="treatment-description has-text-centered" >
+                This treatment focuses on conserving natural teeth and treating cavities.
+              </p>
             </div>
           </div>
         </div>
@@ -390,6 +480,21 @@
         });
       }
     });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const treatmentItems = document.querySelectorAll('.treatment-item');
+
+  if (window.innerWidth <= 768) { // Apply for mobile screen sizes
+    treatmentItems.forEach(item => {
+      item.addEventListener('click', function () {
+        // Toggle 'clicked' class on mobile for expansion/collapse
+        item.classList.toggle('clicked');
+      });
+    });
+  }
+});
   </script>
 
 
