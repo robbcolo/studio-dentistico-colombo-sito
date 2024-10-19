@@ -31,21 +31,25 @@
       background-color: #f0f0f0;
     }
 
-          /* For mobile screens (max-width: 768px) */
-      @media (max-width: 768px) {
-        .hero.is-primary {
-          height: 100vh; /* Full height for mobile */
-          width: 100vw;  /* Full width */
-        }
+    /* For mobile screens (max-width: 768px) */
+    @media (max-width: 768px) {
+      .hero.is-primary {
+        height: 100vh;
+        /* Full height for mobile */
+        width: 100vw;
+        /* Full width */
       }
+    }
 
-      /* For desktop screens (min-width: 769px) */
-      @media (min-width: 769px) {
-        .hero.is-primary {
-          height: auto; /* Height can be adjusted based on content or remain flexible */
-          width: 100vw; /* Full width */
-        }
+    /* For desktop screens (min-width: 769px) */
+    @media (min-width: 769px) {
+      .hero.is-primary {
+        height: auto;
+        /* Height can be adjusted based on content or remain flexible */
+        width: 100vw;
+        /* Full width */
       }
+    }
 
     /* Padding between sections */
     .section {
@@ -125,53 +129,98 @@
     }
 
     /* Define keyframe animation */
-      @keyframes fadeInScale {
-        0% {
-          opacity: 0; /* Start invisible */
-          transform: scale(0.5); /* Start smaller */
-        }
-        100% {
-          opacity: 1; /* End fully visible */
-          transform: scale(1); /* End at normal size */
-        }
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        /* Start invisible */
+        transform: scale(0.5);
+        /* Start smaller */
       }
 
-      /* Add transition to the animated navbar item */
-      .animated-home {
-        animation: fadeInScale 2.0s ease forwards; /* Apply animation on load */
-        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+      100% {
+        opacity: 1;
+        /* End fully visible */
+        transform: scale(1);
+        /* End at normal size */
       }
-
-      @keyframes tilt {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(5deg); }
-        50% { transform: rotate(-5deg); }
-        75% { transform: rotate(5deg); }
-        100% { transform: rotate(0deg); }
-      }
-
-      @keyframes scale {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); } /* Scale up */
     }
+
+    /* Add transition to the animated navbar item */
+    .animated-home {
+      animation: fadeInScale 2.0s ease forwards;
+      /* Apply animation on load */
+      transition: color 0.3s ease, transform 0.3s ease;
+      /* Smooth transition for hover */
+    }
+
+    @keyframes tilt {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(5deg);
+      }
+
+      50% {
+        transform: rotate(-5deg);
+      }
+
+      75% {
+        transform: rotate(5deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes scale {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      /* Scale up */
+    }
+
     @keyframes scaleAndTilt {
-        0% { transform: rotate(0deg) scale(1); }
-        20% { transform: rotate(5deg) scale(1.2); }
-        40% { transform: rotate(-5deg) scale(1.2); }
-        60% { transform: rotate(5deg) scale(1.2); }
-        80% { transform: rotate(-5deg) scale(1.2); }
-        100% { transform: rotate(0deg) scale(1); }
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      20% {
+        transform: rotate(5deg) scale(1.2);
+      }
+
+      40% {
+        transform: rotate(-5deg) scale(1.2);
+      }
+
+      60% {
+        transform: rotate(5deg) scale(1.2);
+      }
+
+      80% {
+        transform: rotate(-5deg) scale(1.2);
+      }
+
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
     }
-
-    
-
   </style>
 </head>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     // Add a delay before applying the animation class
-    setTimeout(function() {
+    setTimeout(function () {
       document.querySelector('.animated-home').classList.add('fade-in');
     }, 1000);
   });
@@ -183,7 +232,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
-          <i class="fa-solid fa-tooth " style="font-size: 1.5em;"></i> 
+          <i class="fa-solid fa-tooth " style="font-size: 1.5em;"></i>
         </a>
         <span class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
           <span aria-hidden="true"></span>
@@ -225,20 +274,17 @@
 
   <!-- Title Section -->
   <section class="hero is-primary is-large">
-    <div class="hero-body has-text-centered">
+    <div class="hero-body has-text-centered ">
       <div class="container animated-home">
         <h1 class="title is-1 " style="color:chocolate; font-weight: bold;">Studio Dentistico Colombo</h1>
         <h2 class="subtitle is-3 " style="color:black; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
+        <a href="#contact" class="button is-primary"
+          style="animation: scale 1s ease; animation-iteration-count: 1;animation-delay: 1.5s; font-size: 2em;">Contattaci</a>
       </div>
     </div>
   </section>
 
-  <section class="section " style="padding-bottom: 2rem; padding-top: 2rem;">
-    <div class="container has-text-centered">
-    <a href="#contact" class="button is-primary" style="animation: scaleAndTilt 1s ease; animation-iteration-count: 1;animation-delay: 1.5s; font-size: 2em;">Contattaci</a>
-    </div>
-  </section>
 
   <!-- Custom CSS -->
   <style>
@@ -255,7 +301,8 @@
       transition: transform 0.7s ease;
       height: 100%;
       /* Ensure all cards take full height */
-      position: relative; /* Ensure the icon is positioned correctly */
+      position: relative;
+      /* Ensure the icon is positioned correctly */
     }
 
     /* Add hover effect */
@@ -311,63 +358,75 @@
       transition: transform 1.0s ease;
       /* Smooth transition */
     }
+
     /* Initially hide the description */
-.treatment-description {
-  
-  opacity: 0;
-  max-height: 0;
-  transition: opacity 1s ease, max-height 1.2s ease, visibility 0s 1.0s;
-}
+    .treatment-description {
 
-/* Style for the toggle icon */
-.toggle-icon {
-  font-size: 1.2em; /* Adjust size */
-  position: absolute; /* Position it relative to the card */
-  right: 20px; /* Adjust as needed */
-  top: 20px; /* Adjust as needed */
-  transition: transform 0.8s ease; /* Smooth rotation */
-  opacity: 0.3;
-}
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 1s ease, max-height 1.2s ease, visibility 0s 1.0s;
+    }
 
-/* Show the description on hover (desktop) */
-@media (min-width: 769px) {
-  .treatment-item:hover .treatment-description {
-    
-    opacity: 1;
-    max-height: 100px; /* Adjust this as needed */
-    visibility: visible; /* Make it visible when hovered */
-    transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s; /* Transition and visibility change */
-  }
-  .treatment-item:hover .toggle-icon {
-  transform: rotate(180deg); /* Rotate the icon */
-  transition: transform 0.8s ease;
-}
-  .treatment-item:hover {
-    transform: scale(1.08);
-    height: auto; /* Ensure it expands with content */
-  }
-}
+    /* Style for the toggle icon */
+    .toggle-icon {
+      font-size: 1.2em;
+      /* Adjust size */
+      position: absolute;
+      /* Position it relative to the card */
+      right: 20px;
+      /* Adjust as needed */
+      top: 20px;
+      /* Adjust as needed */
+      transition: transform 0.8s ease;
+      /* Smooth rotation */
+      opacity: 0.3;
+    }
 
-@media (max-width: 768px) {
-  
-  .treatment-item.clicked .treatment-description {
-    opacity: 1;
-    max-height: 200px; /* Adjust as needed */
-    visibility: visible;
-    transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s; /* Transition and visibility change */
-  }
-  /* Rotate the icon when clicked */
-.treatment-item.clicked .toggle-icon {
-  transform: rotate(180deg); /* Rotate the icon */
-  transition: transform 0.8s ease;
-}
-  
-}
+    /* Show the description on hover (desktop) */
+    @media (min-width: 769px) {
+      .treatment-item:hover .treatment-description {
 
+        opacity: 1;
+        max-height: 100px;
+        /* Adjust this as needed */
+        visibility: visible;
+        /* Make it visible when hovered */
+        transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s;
+        /* Transition and visibility change */
+      }
 
+      .treatment-item:hover .toggle-icon {
+        transform: rotate(180deg);
+        /* Rotate the icon */
+        transition: transform 0.8s ease;
+      }
 
+      .treatment-item:hover {
+        transform: scale(1.08);
+        height: auto;
+        /* Ensure it expands with content */
+      }
+    }
 
+    @media (max-width: 768px) {
 
+      .treatment-item.clicked .treatment-description {
+        opacity: 1;
+        max-height: 200px;
+        /* Adjust as needed */
+        visibility: visible;
+        transition: opacity 1s ease, max-height 1.2s ease, visibility 1.0s;
+        /* Transition and visibility change */
+      }
+
+      /* Rotate the icon when clicked */
+      .treatment-item.clicked .toggle-icon {
+        transform: rotate(180deg);
+        /* Rotate the icon */
+        transition: transform 0.8s ease;
+      }
+
+    }
   </style>
 
   <body>
@@ -383,8 +442,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 1">
               <span class="treatment-text">Odontoiatria conservativa</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -394,8 +453,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 2">
               <span class="treatment-text">Endodonzia</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -405,8 +464,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 3">
               <span class="treatment-text">Ortodonzia</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -416,8 +475,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 4">
               <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -427,8 +486,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 5">
               <span class="treatment-text">Chirurgia orale</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -438,8 +497,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 6">
               <span class="treatment-text">Implantologia</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -449,8 +508,8 @@
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 7">
               <span class="treatment-text">Sbiancamento dentale</span>
-              <i class="fas fa-chevron-down toggle-icon"></i> 
-              <p class="treatment-description has-text-centered" >
+              <i class="fas fa-chevron-down toggle-icon"></i>
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -459,9 +518,9 @@
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
               <img src="https://via.placeholder.com/70" alt="Treatment 8">
-              <i class="fas fa-chevron-down toggle-icon"></i> 
+              <i class="fas fa-chevron-down toggle-icon"></i>
               <span class="treatment-text">Protesi</span>
-              <p class="treatment-description has-text-centered" >
+              <p class="treatment-description has-text-centered">
                 This treatment focuses on conserving natural teeth and treating cavities.
               </p>
             </div>
@@ -500,17 +559,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-  const treatmentItems = document.querySelectorAll('.treatment-item');
+      const treatmentItems = document.querySelectorAll('.treatment-item');
 
-  if (window.innerWidth <= 768) { // Apply for mobile screen sizes
-    treatmentItems.forEach(item => {
-      item.addEventListener('click', function () {
-        // Toggle 'clicked' class on mobile for expansion/collapse
-        item.classList.toggle('clicked');
-      });
+      if (window.innerWidth <= 768) { // Apply for mobile screen sizes
+        treatmentItems.forEach(item => {
+          item.addEventListener('click', function () {
+            // Toggle 'clicked' class on mobile for expansion/collapse
+            item.classList.toggle('clicked');
+          });
+        });
+      }
     });
-  }
-});
   </script>
 
 
@@ -529,7 +588,8 @@
               <div class="columns is-vcentered">
                 <div class="column is-one-third">
                   <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock1.jpg" alt="Member 1">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock1.jpg"
+                      alt="Member 1">
                   </figure>
                 </div>
                 <div class="column">
@@ -551,7 +611,8 @@
               <div class="columns is-vcentered">
                 <div class="column is-one-third">
                   <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock2.jpg" alt="Member 2">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock2.jpg"
+                      alt="Member 2">
                   </figure>
                 </div>
                 <div class="column">
@@ -573,7 +634,8 @@
               <div class="columns is-vcentered">
                 <div class="column is-one-third">
                   <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Member 3">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg"
+                      alt="Member 3">
                   </figure>
                 </div>
                 <div class="column">
@@ -606,14 +668,16 @@
 
           <!-- Phone without Icon -->
           <p class="content" style="font-size: 1.3em;">
-            <strong >Telefono:</strong><br>
-            <a href="tel:+39094122749" class="has-text-primary"><i class="fa-solid fa-phone"></i>&nbsp; 0941 22749</a><br>
+            <strong>Telefono:</strong><br>
+            <a href="tel:+39094122749" class="has-text-primary"><i class="fa-solid fa-phone"></i>&nbsp; 0941
+              22749</a><br>
             <a href="tel:+393791523085" class="has-text-primary"><i class="fa-solid fa-phone"></i>&nbsp; 379 1523085</a>
           </p>
 
           <p class="content" style="font-size: 1.3em;">
             <strong>Whatsapp:</strong><br>
-            <a href="https://wa.me/393791523085" class="has-text-primary"><i class="fa-brands fa-whatsapp"></i> 379 1523085</a>
+            <a href="https://wa.me/393791523085" class="has-text-primary"><i class="fa-brands fa-whatsapp"></i> 379
+              1523085</a>
           </p>
 
           <div style="margin-bottom: 20px;"></div>
@@ -622,13 +686,13 @@
           <!-- Address without Icon -->
           <p class="content" style="font-size: 1.3em;">
             <strong>Indirizzo:</strong><br>
-            
-            Via Fontanelle, SNC, Patti (ME) 
+
+            Via Fontanelle, SNC, Patti (ME)
             <br>
             <a href="https://www.google.com/maps/place/Studio+Dentistico+Colombo/@38.1395501,14.9683558,19z/data=!4m6!3m5!1s0x13169c5bac9ea239:0xd3cf9836a4ca3755!8m2!3d38.1391602!4d14.9684793!16s%2Fg%2F1hc47jp95?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank" class="button is-primary">
-            Direzioni &nbsp;<i class="fa-solid fa-diamond-turn-right" style="font-size: 1.7em;" ></i>
-          </a>
+              target="_blank" class="button is-primary">
+              Direzioni &nbsp;<i class="fa-solid fa-diamond-turn-right" style="font-size: 1.7em;"></i>
+            </a>
           </p>
 
 
