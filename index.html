@@ -31,6 +31,22 @@
       background-color: #f0f0f0;
     }
 
+          /* For mobile screens (max-width: 768px) */
+      @media (max-width: 768px) {
+        .hero.is-primary {
+          height: 100vh; /* Full height for mobile */
+          width: 100vw;  /* Full width */
+        }
+      }
+
+      /* For desktop screens (min-width: 769px) */
+      @media (min-width: 769px) {
+        .hero.is-primary {
+          height: auto; /* Height can be adjusted based on content or remain flexible */
+          width: 100vw; /* Full width */
+        }
+      }
+
     /* Padding between sections */
     .section {
       padding-top: 4rem;
