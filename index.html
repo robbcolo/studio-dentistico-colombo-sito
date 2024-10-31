@@ -751,6 +751,7 @@
       .member-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin-bottom: 1.5rem;
+        
       }
       
       .member-card:hover {
@@ -790,8 +791,10 @@
       }
       
       .small-staff-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px));
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+        grid-auto-rows: auto;
         justify-content: center;
         gap: 1.5rem;
         margin-top: 2rem;
