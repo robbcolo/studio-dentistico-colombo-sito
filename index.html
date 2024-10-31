@@ -591,100 +591,223 @@
 
 
 
-  <!-- Members Section -->
-  <section class="section" id="members">
-    <div class="container">
-      <h2 class="title has-text-centered">Staff</h2>
-      <h3 class="subtitle has-text-centered">Odontoiatri</h3>
-
-      <!-- Vertical Grid of Images and Descriptions -->
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <div class="card">
-            <div class="card-content">
-              <div class="columns is-vcentered">
-                <div class="column is-one-third">
-                  <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock1.jpg"
-                      alt="Member 1">
-                  </figure>
-                </div>
-                <div class="column">
-                  <div class="content">
-                    <strong>Dott. Alfredo Colombo</strong><br>
-                    CEO & Founder. John leads the team with over 20 years of experience in the industry.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <div class="card">
-            <div class="card-content">
-              <div class="columns is-vcentered">
-                <div class="column is-one-third">
-                  <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock2.jpg"
-                      alt="Member 2">
-                  </figure>
-                </div>
-                <div class="column">
-                  <div class="content">
-                    <strong>Dott. Roberto Colombo</strong><br>
-                    Head of Operations. Roberto ensures smooth execution of all our projects.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <div class="card">
-            <div class="card-content">
-              <div class="columns is-vcentered">
-                <div class="column is-one-third">
-                  <figure class="image is-256x256">
-                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg"
-                      alt="Member 3">
-                  </figure>
-                </div>
-                <div class="column">
-                  <div class="content">
-                    <strong>Dott.ssa Aurora Colombo</strong><br>
-                    Lead Developer. Michael is responsible for our cutting-edge technology solutions.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-        <!-- Members Section -->
+ <!-- Members Section -->
 <section class="section" id="members">
   <div class="container">
-    <h3 class="subtitle has-text-centered">Assistenti</h3>
+    <h2 class="title has-text-centered">Staff</h2>
+    
+    <style>
+      .staff-section {
+        margin-bottom: 4rem;
+      }
+      
+      .staff-subtitle {
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      
+      .staff-subtitle::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background-color: #00d1b2;
+      }
+      
+      .member-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 1.5rem;
+      }
+      
+      .member-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .member-card.is-small {
+        font-size: 0.9em;
+        margin: 0 auto;
+        width: 250px;
+      }
+      
+      .member-card.is-small .image {
+        width: 128px;
+        height: 128px;
+        margin: 0 auto;
+      }
+      
+      .member-card.is-small .card-content {
+        padding: 1rem;
+      }
+      
+      .member-info {
+        margin-top: 0.5rem;
+      }
+      
+      .member-name {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 0.3rem;
+      }
+      
+      .member-role {
+        color: #666;
+        font-size: 0.9em;
+      }
+      
+      .small-staff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px));
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+    </style>
 
-    <!-- Members Section -->
-<section class="section" id="members">
-  <div class="container">
-    <h3 class="subtitle has-text-centered">Consulenti</h3>
+    <!-- Odontoiatri Section -->
+    <div class="staff-section">
+      <h3 class="staff-subtitle">Odontoiatri</h3>
+      
+      <!-- Main Doctors -->
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card member-card">
+            <div class="card-content">
+              <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                  <figure class="image is-256x256">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock1.jpg" alt="Dott. Alfredo Colombo">
+                  </figure>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <div class="member-name">Dott. Alfredo Colombo</div>
+                    <div class="member-role">CEO & Founder</div>
+                    <p>Specializzato in chirurgia orale e implantologia con oltre 20 anni di esperienza.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card member-card">
+            <div class="card-content">
+              <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                  <figure class="image is-256x256">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock2.jpg" alt="Dott. Roberto Colombo">
+                  </figure>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <div class="member-name">Dott. Roberto Colombo</div>
+                    <div class="member-role">Direttore Clinico</div>
+                    <p>Specialista in ortodonzia e gnatologia. Responsabile dei trattamenti Invisalign.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card member-card">
+            <div class="card-content">
+              <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                  <figure class="image is-256x256">
+                    <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Dott.ssa Aurora Colombo">
+                  </figure>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <div class="member-name">Dott.ssa Aurora Colombo</div>
+                    <div class="member-role">Odontoiatra</div>
+                    <p>Specializzata in odontoiatria conservativa ed endodonzia.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Assistenti Section -->
+    <div class="staff-section">
+      <h3 class="staff-subtitle">Assistenti</h3>
+      <div class="small-staff-grid">
+        <div class="card member-card is-small">
+          <div class="card-content has-text-centered">
+            <figure class="image">
+              <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Maria Rossi">
+            </figure>
+            <div class="member-info">
+              <div class="member-name">Maria Rossi</div>
+              <div class="member-role">Assistente alla poltrona</div>
+            </div>
+          </div>
+        </div>
 
-
+        <div class="card member-card is-small">
+          <div class="card-content has-text-centered">
+            <figure class="image">
+              <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Laura Bianchi">
+            </figure>
+            <div class="member-info">
+              <div class="member-name">Laura Bianchi</div>
+              <div class="member-role">Assistente alla poltrona</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- Consulenti Section -->
+    <div class="staff-section">
+      <h3 class="staff-subtitle">Consulenti</h3>
+      <div class="small-staff-grid">
+        <div class="card member-card is-small">
+          <div class="card-content has-text-centered">
+            <figure class="image">
+              <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Dr. Paolo Verdi">
+            </figure>
+            <div class="member-info">
+              <div class="member-name">Dr. Paolo Verdi</div>
+              <div class="member-role">Consulente Ortodontico</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card member-card is-small">
+          <div class="card-content has-text-centered">
+            <figure class="image">
+              <img class="is-rounded hover-image" src="assets/images/stock_examples/doc_stock3.jpg" alt="Dr.ssa Anna Neri">
+            </figure>
+            <div class="member-info">
+              <div class="member-name">Dr.ssa Anna Neri</div>
+              <div class="member-role">Consulente Implantologia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Opening Hours Section -->
 <section class="section" id="orari">
