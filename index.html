@@ -285,20 +285,29 @@
       position: fixed;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 2rem;
+      bottom: 50%;
       z-index: 99;
       width: auto;
       text-align: center;
+      transition: all 0.5s ease;
+    }
+    .floating-button-container.is-scrolling{
+      left: 90%;
+      bottom: 0%;
+      opacity: 1;
+      transition: all 1.0s ease;
     }
   
     .floating-button {
       font-size: 2em;
       transition: all 0.3s ease;
-      background-color: rgba(32, 156, 238, 0.9) !important;
+      background-color: rgba(238, 32, 32, 0.7) !important;
       backdrop-filter: blur(4px);
       display: inline-flex !important;
       align-items: center;
+      border-radius: 15px;
       justify-content: center;
+      
     }
   
     .floating-button .icon {
@@ -314,8 +323,8 @@
       border-radius: 50% !important;
       padding: 0 !important;
       font-size: 1.5em;
-      background-color: rgba(32, 156, 238, 0.8) !important;
-      transform: translateX(-50%) translateY(0);
+      background-color: rgba(238, 32, 32, 0.7) !important;
+      transform: translateX(-50%) translateY(0) !important;
     }
   
     .floating-button.is-scrolling .button-text {
@@ -336,8 +345,8 @@
   
     .floating-button:hover {
       transform: translateX(-50%) translateY(-5px);
-      background-color: rgba(32, 156, 238, 1) !important;
-      box-shadow: 0 4px 15px rgba(32, 156, 238, 0.3);
+      background-color: rgba(238, 32, 32, 1) !important;
+      box-shadow: 0 4px 15px rgba(238, 32, 32, 0.3);
     }
   
     /* Initial button state hover */
@@ -358,14 +367,16 @@
     }
   
     /* Hide button when at contact section */
-  .is-hidden {
-    display: none !important;
-  }
+    .floating-button.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const button = document.getElementById('floatingContactBtn');
+      const cnt = document.getElementById('floatingContactCnt');
       const contactSection = document.getElementById('contact');
       let lastScrollTop = 0;
   
@@ -376,15 +387,19 @@
         // Check if we're near or at the contact section
         if (scrollTop >= (contactSectionTop - window.innerHeight)) {
           button.classList.add('is-hidden');
+          cnt.classList.add('is-hidden');
         } else {
           button.classList.remove('is-hidden');
+          cnt.classList.remove('is-hidden');
         }
   
         // Add scrolling class after scrolling down 100px
         if (scrollTop > 100) {
           button.classList.add('is-scrolling');
+          cnt.classList.add('is-scrolling');
         } else {
           button.classList.remove('is-scrolling');
+          cnt.classList.remove('is-scrolling');
         }
   
         lastScrollTop = scrollTop;
@@ -393,7 +408,7 @@
 
   </script> 
 
-  <div class="floating-button-container" >
+  <div class="floating-button-container" id="floatingContactCnt" >
     <a href="#contact" class="button is-info floating-button" style="animation: fadeInScale 2.0s ease forwards" id="floatingContactBtn">
       <span class="button-text">Contattaci</span>
       <span class="icon">
