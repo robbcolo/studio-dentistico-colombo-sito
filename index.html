@@ -219,16 +219,6 @@
   </style>
 </head>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Add a delay before applying the animation class
-    setTimeout(function () {
-      document.querySelector('.animated-home').classList.add('fade-in');
-    }, 1000);
-  });
-</script>
-
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -278,18 +268,140 @@
   </script>
 
   <!-- Title Section -->
+
+  
   <section class="hero is-primary is-large">
     <div class="hero-body has-text-centered ">
       <div class="container animated-home">
         <h1 class="title is-1 " style="color:white; font-weight: bold;">Studio Dentistico Colombo</h1>
         <h2 class="subtitle is-3 " style="color:white; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
-        <a href="#contact" class="button is-info"
-          style="animation: scale 1s ease; animation-iteration-count: 1;animation-delay: 1.5s; font-size: 2em;">Contattaci</a>
       </div>
     </div>
+    
   </section>
+  <style>
+    .floating-button-container {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 2rem;
+      z-index: 99;
+      width: auto;
+      text-align: center;
+    }
+  
+    .floating-button {
+      font-size: 2em;
+      transition: all 0.3s ease;
+      background-color: rgba(32, 156, 238, 0.9) !important;
+      backdrop-filter: blur(4px);
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .floating-button .icon {
+      display: none;
+      margin: 0 !important;
+    }
+  
+    .floating-button.is-scrolling {
+      position: fixed;
+      bottom: 2rem;
+      width: 60px !important;
+      height: 60px !important;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      font-size: 1.5em;
+      background-color: rgba(32, 156, 238, 0.8) !important;
+      transform: translateX(-50%) translateY(0);
+    }
+  
+    .floating-button.is-scrolling .button-text {
+      display: none;
+    }
+  
+    .floating-button.is-scrolling .icon {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .floating-button.is-scrolling .icon i {
+      font-size: 24px;
+    }
+  
+    .floating-button:hover {
+      transform: translateX(-50%) translateY(-5px);
+      background-color: rgba(32, 156, 238, 1) !important;
+      box-shadow: 0 4px 15px rgba(32, 156, 238, 0.3);
+    }
+  
+    /* Initial button state hover */
+    .floating-button:not(.is-scrolling):hover {
+      transform: translateY(-5px);
+    }
+  
+    @keyframes scale {
+      0% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.1);
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+  
+    /* Hide button when at contact section */
+    .floating-button.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('floatingContactBtn');
+      const contactSection = document.getElementById('contact');
+      let lastScrollTop = 0;
+  
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const contactSectionTop = contactSection?.offsetTop || Infinity;
+        
+        // Check if we're near or at the contact section
+        if (scrollTop >= (contactSectionTop - window.innerHeight)) {
+          button.classList.add('is-hidden');
+        } else {
+          button.classList.remove('is-hidden');
+        }
+  
+        // Add scrolling class after scrolling down 100px
+        if (scrollTop > 100) {
+          button.classList.add('is-scrolling');
+        } else {
+          button.classList.remove('is-scrolling');
+        }
+  
+        lastScrollTop = scrollTop;
+      });
+    });
 
+  </script> 
+
+  <div class="floating-button-container" >
+    <a href="#contact" class="button is-info floating-button" style="animation: fadeInScale 2.0s ease forwards" id="floatingContactBtn">
+      <span class="button-text">Contattaci</span>
+      <span class="icon">
+        <i class="fas fa-phone"></i>
+      </span>
+    </a>
+  </div>
 
 
   
