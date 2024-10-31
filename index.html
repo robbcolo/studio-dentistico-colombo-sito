@@ -51,6 +51,52 @@
       }
     }
 
+    /* Tabella orari */
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orari di Apertura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .schedule-table {
+            width: 600px;
+            margin: auto;
+            border-collapse: collapse;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 12px 20px;
+            text-align: center;
+        }
+        .schedule-table th {
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: normal;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .schedule-table tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .schedule-table td {
+            color: #333333;
+        }
+        .schedule-table tr:last-child td {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
     /* Padding between sections */
     .section {
       padding-top: 4rem;
@@ -217,6 +263,7 @@
   </style>
 </head>
 
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Add a delay before applying the animation class
@@ -284,6 +331,32 @@
       </div>
     </div>
   </section>
+
+  <table class="schedule-table">
+    <thead>
+        <tr>
+            <th>Giorno</th>
+            <th>Orario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Lunedì - Giovedì</strong></td>
+            <td><strong>8:30 - 12:30</strong><br><strong>16:00 - 20:00</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Venerdì</strong></td>
+            <td><strong>8:30 - 12:30</strong></td>
+        </tr>
+        <tr>
+            <td>Sabato e Domenica</td>
+            <td>Chiuso</td>
+        </tr>
+    </tbody>
+</table>
+  
+
+  
 
 
   <!-- Custom CSS -->
@@ -737,7 +810,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>&copy; 2024 Studio Dentistico Colombo.</p>
+      <p>&copy; 2024 Studio Dentistico Colombo</p>
     </div>
   </footer>
 
