@@ -291,6 +291,20 @@
       text-align: center;
       transition: all 0.5s ease;
     }
+    /* For mobile screens (max-width: 768px) */
+    @media (max-width: 768px) {
+      .floating-button-container {
+        bottom:30%;
+      }
+    }
+
+    /* For desktop screens (min-width: 769px) */
+    @media (min-width: 769px) {
+      .floating-button-container {
+        bottom:50%;
+      }
+    }
+
     .floating-button-container.is-scrolling{
       left: 90%;
       bottom: 0%;
