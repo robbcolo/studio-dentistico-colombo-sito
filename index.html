@@ -14,6 +14,7 @@
 
   <!-- Custom CSS -->
   <style>
+    
     /*fix overflow*/
     html,
     body {
@@ -51,51 +52,6 @@
       }
     }
 
-    /* Tabella orari */
-     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orari di Apertura</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
-        }
-        .schedule-table {
-            width: 600px;
-            margin: auto;
-            border-collapse: collapse;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #ffffff;
-        }
-        .schedule-table th, .schedule-table td {
-            padding: 12px 20px;
-            text-align: center;
-        }
-        .schedule-table th {
-            background-color: #000000;
-            color: #ffffff;
-            font-weight: normal;
-        }
-        .schedule-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .schedule-table tr:nth-child(odd) {
-            background-color: #ffffff;
-        }
-        .schedule-table td {
-            color: #333333;
-        }
-        .schedule-table tr:last-child td {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
 
     /* Padding between sections */
     .section {
@@ -290,8 +246,10 @@
 
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
+          
           <a class="navbar-item is-rounded is-primary" href="#treatments">Trattamenti</a>
           <a class="navbar-item is-rounded is-primary" href="#members">Staff</a>
+          <a class="navbar-item is-rounded is-primary" href="#orari">Orari</a>
           <a class="navbar-item is-rounded is-primary" href="#contact">Contattaci</a>
         </div>
       </div>
@@ -326,35 +284,13 @@
         <h1 class="title is-1 " style="color:white; font-weight: bold;">Studio Dentistico Colombo</h1>
         <h2 class="subtitle is-3 " style="color:white; font-size: 18px; font-weight: bold;">Esperienza e passione per il
           tuo sorriso, da generazioni</h2>
-        <a href="#contact" class="button is-primary"
+        <a href="#contact" class="button is-info"
           style="animation: scale 1s ease; animation-iteration-count: 1;animation-delay: 1.5s; font-size: 2em;">Contattaci</a>
       </div>
     </div>
   </section>
 
-  <table class="schedule-table">
-    <thead>
-        <tr>
-            <th>Giorno</th>
-            <th>Orario</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Lunedì - Giovedì</strong></td>
-            <td><strong>8:30 - 12:30</strong><br><strong>16:00 - 20:00</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Venerdì</strong></td>
-            <td><strong>8:30 - 12:30</strong></td>
-        </tr>
-        <tr>
-            <td>Sabato e Domenica</td>
-            <td>Chiuso</td>
-        </tr>
-    </tbody>
-</table>
-  
+
 
   
 
@@ -749,6 +685,155 @@
 
     </div>
   </section>
+
+<!-- Opening Hours Section -->
+<section class="section" id="orari">
+  <div class="container">
+    <h2 class="title has-text-centered">Orari di apertura</h2>
+    
+    <style>
+      .hours-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .hours-grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .hours-item {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hours-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .day-label {
+        flex: 1;
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 1.1rem;
+      }
+
+      .time-slots {
+        flex: 1;
+        text-align: right;
+        color: #34495e;
+      }
+
+      .time-slot {
+        display: block;
+        font-size: 1rem;
+      }
+
+      .closed {
+        color: #e74c3c;
+      }
+
+      .current-day {
+        background: #e3f2fd;
+        border-left: 4px solid #1976d2;
+      }
+
+      .notice-box {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: #fff3e0;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid #ffe0b2;
+      }
+
+      .notice-box i {
+        color: #f57c00;
+        margin-right: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .hours-item {
+          flex-direction: column;
+          text-align: center;
+          padding: 1rem;
+        }
+
+        .day-label, .time-slots {
+          text-align: center;
+          margin: 0.3rem 0;
+        }
+      }
+    </style>
+
+    <div class="hours-container">
+      <div class="hours-grid">
+        <div class="hours-item">
+          <div class="day-label">
+            <i class="fas fa-clock" style="margin-right: 10px;"></i>
+            Lunedì - Giovedì
+          </div>
+          <div class="time-slots">
+            <span class="time-slot">8:30 - 12:30</span>
+            <span class="time-slot">16:00 - 20:00</span>
+          </div>
+        </div>
+
+        <div class="hours-item">
+          <div class="day-label">
+            <i class="fas fa-clock" style="margin-right: 10px;"></i>
+            Venerdì
+          </div>
+          <div class="time-slots">
+            <span class="time-slot">8:30 - 12:30</span>
+          </div>
+        </div>
+
+        <div class="hours-item">
+          <div class="day-label">
+            <i class="fas fa-moon" style="margin-right: 10px;"></i>
+            Sabato - Domenica
+          </div>
+          <div class="time-slots">
+            <span class="time-slot closed">Chiuso</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <i class="fas fa-info-circle"></i>
+        Per emergenze al di fuori degli orari di apertura, <a href="#contact">contattaci</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add current day highlight
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().getDay(); // 0 is Sunday, 1 is Monday, etc.
+      const hoursItems = document.querySelectorAll('.hours-item');
+      
+      if (today >= 1 && today <= 4) { // Monday to Thursday
+        hoursItems[0].classList.add('current-day');
+      } else if (today === 5) { // Friday
+        hoursItems[1].classList.add('current-day');
+      } else { // Saturday and Sunday
+        hoursItems[2].classList.add('current-day');
+      }
+    });
+  </script>
+</section>
+
 
   <!-- Contact Section -->
   <section class="section" id="contact" style="background-color: #f9f9f9; padding: 4rem 0;">
