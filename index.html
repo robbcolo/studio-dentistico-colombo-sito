@@ -98,13 +98,13 @@
 .section-title-wrapper.in-view::before {
   top: -10px;
   transform-origin: right;
-  animation: expandLine 0.5s forwards;
+  animation: expandLine 0.75s forwards;
 }
 
 .section-title-wrapper.in-view::after {
   bottom: -10px;
   transform-origin: left;
-  animation: expandLine 0.5s forwards;
+  animation: expandLine 0.75s forwards;
 }
 
 /* Define the animation */
@@ -309,7 +309,7 @@
   const observerOptions = {
     root: null,       // viewport
     rootMargin: '0px',
-    threshold: 0.1    // trigger when 10% of the element is visible
+    threshold: 0.4    // trigger when 10% of the element is visible
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -1323,26 +1323,27 @@
 /* Opening hours section */
 #orari {
   background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('assets/images/studio/sala_attesa.jpeg');
-  background-size: cover;
+  
   background-position: center;
-  background-attachment: fixed;
+  
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@media (max-width: 768px) { /* Adjust this size based on your needs */
+  #orari {
+    background-size: cover;
+    background-attachment: scroll; /* or remove this line entirely */
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (min-width: 768px) { /* Adjust this size based on your needs */
+  #orari {
+    background-size: cover;
+    background-attachment: fixed; /* or remove this line entirely */
   }
 }
+
     </style>
 
     <div class="hours-container">
