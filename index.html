@@ -60,6 +60,104 @@
       overflow-x: hidden;
     }
 
+.section-title-wrapper {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title-wrapper::before,
+.section-title-wrapper::after {
+  content: '';
+  height: 4px;
+  width: 80%;
+
+  border-radius: 2px;
+  position: absolute;
+  left: 10%;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Inverted gradient for ::before */
+.section-title-wrapper::before {
+  background: linear-gradient(90deg, #ff8c00, #ff4040); /* Orange to Red */
+}
+
+/* Original gradient for ::after */
+.section-title-wrapper::after {
+  background: linear-gradient(90deg, #ff4040, #ff8c00); /* Red to Orange */
+}
+/* Animation when in view */
+.section-title-wrapper.in-view::before {
+  top: -10px;
+  transform-origin: right;
+  animation: expandLine 0.5s forwards;
+}
+
+.section-title-wrapper.in-view::after {
+  bottom: -10px;
+  transform-origin: left;
+  animation: expandLine 0.5s forwards;
+}
+
+/* Define the animation */
+@keyframes expandLine {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.section-title {
+  color: black;
+  font-size: 2.0rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* Add these styles for the treatments subtitle */
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #ff4040;
+  border-radius: 2px;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+}
     /* Hover effect for images */
     .hover-image {
       transition: transform 1s ease, box-shadow 0.4s ease;
@@ -204,6 +302,27 @@
       }
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const observers = document.querySelectorAll('.section-title-wrapper');
+
+  const observerOptions = {
+    root: null,       // viewport
+    rootMargin: '0px',
+    threshold: 0.1    // trigger when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, observerOptions);
+
+  observers.forEach(el => observer.observe(el));
+});
+  </script>
 </head>
 
 <body>
@@ -619,13 +738,153 @@
       }
 
     }
+
+    
+/* Treatments hero section */
+.treatments-hero {
+  position: relative;
+  width: 100vw;
+  height: 500px; /* Taller for desktop */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+.treatments-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/studio/tablet.jpeg');
+  background-size: cover;
+  background-position: center;
+  animation: zoomBg 20s infinite alternate ease-in-out;
+}
+
+.treatments-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.treatments-message {
+  width: 50%;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0; /* Start invisible */
+  transform: translateX(100px); /* Start position */
+  transition: opacity 1s ease-out, transform 2s ease-out;
+}
+
+.animate-message {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes zoomBg {
+  from {
+    transform: scale(1.0);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .treatments-hero {
+    height: 100vh;
+  }
+
+  .treatments-hero-bg {
+    background-position: left 60% center; /* Move background image to the left */
+    /* Optional: if you want to ensure it shows a specific part of the image */
+    background-size: cover;
+    /* Alternative if you want to show more of the image width:
+    background-size: auto 100%; */
+  }
+
+  .treatments-content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    ); /* Enhanced readability gradient */
+  }
+
+  .treatments-message {
+    width: 90%;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
+
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-message');
+      }
+    });
+  }, {
+    threshold: 0.2 // Triggers when 20% of the element is visible
+  });
+
+  const message = document.querySelector('.treatments-message');
+  if (message) {
+    observer.observe(message);
+  }
+});
+  </script>
 
   <body>
     <!-- Treatments Section -->
     <section class="section" id="treatments">
-      <div class="container">
-        <h2 class="title has-text-centered">I nostri trattamenti</h2>
+      <div class="section-title-wrapper">
+        <h2 class="section-title">I nostri trattamenti</h2>
+      </div>
+      
+        
+                <!-- Treatments Hero Section -->
+<div class="container">
+                <div class="treatments-hero">
+  <div class="treatments-hero-bg"></div>
+  <div class="treatments-content">
+    <div class="treatments-message">
+      Tecnologia all'avanguardia e professionalità al servizio del tuo sorriso
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="container">
+  <h3 class="section-subtitle">Soluzioni personalizzate per ogni esigenza del tuo sorriso</h3>
+
 
         <!-- Grid for treatments -->
         <div class="columns is-multiline is-centered">
@@ -770,33 +1029,15 @@
  <!-- Members Section -->
 <section class="section" id="members">
   <div class="container">
-    <h2 class="title has-text-centered">Staff</h2>
+    <div class="section-title-wrapper">
+      <h2 class="section-title">Staff</h2>
+    </div>
     
     <style>
       .staff-section {
         margin-bottom: 4rem;
       }
       
-      .staff-subtitle {
-        color: #333;
-        font-weight: bold;
-        margin-bottom: 2rem;
-        font-size: 1.5rem;
-        text-align: center;
-        position: relative;
-        padding-bottom: 0.5rem;
-      }
-      
-      .staff-subtitle::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 3px;
-        background-color: #00d1b2;
-      }
       
       .member-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -849,11 +1090,12 @@
         gap: 1.5rem;
         margin-top: 2rem;
       }
+
     </style>
 
     <!-- Odontoiatri Section -->
     <div class="staff-section">
-      <h3 class="staff-subtitle">Odontoiatri</h3>
+      <h3 class="section-subtitle">Odontoiatri</h3>
       
       <!-- Main Doctors -->
       <div class="columns is-centered">
@@ -928,7 +1170,7 @@
 
     <!-- Assistenti Section -->
     <div class="staff-section">
-      <h3 class="staff-subtitle">Assistenti</h3>
+      <h3 class="section-subtitle">Assistenti</h3>
       <div class="small-staff-grid">
         <div class="card member-card is-small">
           <div class="card-content has-text-centered">
@@ -958,7 +1200,7 @@
 
     <!-- Consulenti Section -->
     <div class="staff-section">
-      <h3 class="staff-subtitle">Consulenti</h3>
+      <h3 class="section-subtitle">Consulenti</h3>
       <div class="small-staff-grid">
         <div class="card member-card is-small">
           <div class="card-content has-text-centered">
@@ -1076,6 +1318,31 @@
           margin: 0.3rem 0;
         }
       }
+
+      
+/* Opening hours section */
+#orari {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('assets/images/studio/sala_attesa.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     </style>
 
     <div class="hours-container">
