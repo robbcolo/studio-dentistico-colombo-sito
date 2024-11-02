@@ -1342,6 +1342,17 @@
         color: #e74c3c;
       }
 
+      .closed-day {
+    background: #ffe5e5; /* Light red background */
+    border-left: 4px solid #ff4444; /* Red border */
+      }
+
+      .time-slot.closed {
+    color: #ff4444; /* Red text for "Chiuso" */
+    font-weight: bold;
+      }
+
+
       .current-day {
         background: #f1ffd4;
         border-left: 4px solid #19d24a;
@@ -1444,19 +1455,24 @@
   </div>
 
   <script>
-    // Add current day highlight
-    document.addEventListener('DOMContentLoaded', function() {
-      const today = new Date().getDay(); // 0 is Sunday, 1 is Monday, etc.
-      const hoursItems = document.querySelectorAll('.hours-item');
-      
-      if (today >= 1 && today <= 4) { // Monday to Thursday
-        hoursItems[0].classList.add('current-day');
-      } else if (today === 5) { // Friday
-        hoursItems[1].classList.add('current-day');
-      } else { // Saturday and Sunday
-        hoursItems[2].classList.add('current-day');
-      }
+    // Modified JavaScript for handling current day and closed days
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().getDay(); // 0 is Sunday, 1 is Monday, etc.
+    const hoursItems = document.querySelectorAll('.hours-item');
+    
+    // Remove any existing classes first
+    hoursItems.forEach(item => {
+        item.classList.remove('current-day', 'closed-day');
     });
+
+    if (today >= 1 && today <= 4) { // Monday to Thursday
+        hoursItems[0].classList.add('current-day');
+    } else if (today === 5) { // Friday
+        hoursItems[1].classList.add('current-day');
+    } else { // Saturday and Sunday (0 or 6)
+        hoursItems[2].classList.add('closed-day');
+    }
+});
   </script>
 </section>
 
@@ -1473,14 +1489,14 @@
 
 
           <!-- Phone without Icon -->
-          <p class="content" style="font-size: 1.3em;">
+          <p class="content" style="font-size: 1.5em;">
             <strong>Telefono:</strong><br>
             <a href="tel:+39094122749" class="has-text-danger"><i class="fa-solid fa-phone"></i>&nbsp; 0941
               22749</a><br>
             <a href="tel:+393791523085" class="has-text-danger"><i class="fa-solid fa-phone"></i>&nbsp; 379 1523085</a>
           </p>
 
-          <p class="content" style="font-size: 1.3em;">
+          <p class="content" style="font-size: 1.5em;">
             <strong>Whatsapp:</strong><br>
             <a href="https://wa.me/393791523085" class="has-text-success"><i class="fa-brands fa-whatsapp"></i> 379
               1523085</a>
@@ -1490,10 +1506,10 @@
 <p class="content" style="font-size: 1.3em;">
   <strong>Social:</strong><br>
   <a href="https://www.facebook.com/profile.php?id=61567455836003&sk=about" class="has-text-link" style="margin-right: 15px;">
-      <i class="fa-brands fa-facebook" style="font-size: 1.5em;"></i>
+      <i class="fa-brands fa-facebook" style="font-size: 2.5em;"></i>
   </a>
   <a href="https://www.instagram.com/studiodentisticocolombo" class="has-text-danger">
-      <i class="fa-brands fa-instagram" style="font-size: 1.5em;"></i>
+      <i class="fa-brands fa-instagram" style="font-size: 2.5em;"></i>
   </a>
 </p>
 <div style="margin-bottom: 20px;"></div>
@@ -1502,7 +1518,7 @@
           <div style="margin-bottom: 20px;"></div>
 
           <!-- Address without Icon -->
-          <p class="content" style="font-size: 1.3em;">
+          <p class="content" style="font-size: 1.5em;">
             <strong>Indirizzo:</strong><br>
 
             Via Fontanelle, SNC, Patti (ME)
