@@ -41,15 +41,24 @@
       background-color: #f0f0f0;
     }
 
-    /* For mobile screens (max-width: 768px) */
     @media (max-width: 768px) {
-      .hero.is-primary {
+    .hero.is-primary {
         height: 100vh;
-        /* Full height for mobile */
-        width: 100vw;
-        /* Full width */
-      }
+        background-size: cover auto;
+        animation: panAndZoom 25s infinite alternate ease-in-out;
     }
+
+    @keyframes panAndZoom {
+        0% {
+            background-position: 0% center;
+            background-size: cover auto;
+        }
+        100% {
+            background-position: 100% center;
+            background-size: cover auto;
+        }
+    }
+}
 
     /* For desktop screens (min-width: 769px) */
     @media (min-width: 769px) {
@@ -1401,6 +1410,33 @@
   
   background-position: center;
   
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    #orari {
+        background-size: cover;
+        animation: panAndZoomOrari 25s infinite alternate ease-in-out;
+    }
+
+    @keyframes panAndZoomOrari {
+        0% {
+            background-position: 0% center;
+            background-size: cover auto;
+        }
+        100% {
+            background-position: 100% center;
+            background-size: cover auto;
+        }
+    }
+}
+
+/* For desktop screens */
+@media (min-width: 769px) {
+    #orari {
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 @media (max-width: 768px) { /* Adjust this size based on your needs */
