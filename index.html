@@ -967,6 +967,15 @@
     background-color: black;
 }
 
+/* Animazione di chiusura */
+.modal.is-closing {
+    animation: modalFadeOut 0.3s ease forwards;
+}
+
+.modal.is-closing .modal-content {
+    animation: modalZoomOut 0.3s ease forwards;
+}
+
 /* Keyframes per le animazioni */
 @keyframes modalFadeIn {
     from {
@@ -985,6 +994,26 @@
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes modalZoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.7);
+        opacity: 0;
     }
 }
 
@@ -1390,12 +1419,24 @@
     let currentSlide = 0;
 
     modal.querySelector('.modal-close').addEventListener('click', () => {
-        modal.classList.remove('is-active');
-    });
+    closeModalWithAnimation();
+});
 
-    modal.querySelector('.modal-background').addEventListener('click', () => {
+modal.querySelector('.modal-background').addEventListener('click', () => {
+    closeModalWithAnimation();
+});
+
+// Funzione per chiudere il modal con animazione
+function closeModalWithAnimation() {
+    const modal = document.getElementById('photoModal');
+    modal.classList.add('is-closing');
+    
+    // Aspetta che l'animazione finisca prima di nascondere il modal
+    setTimeout(() => {
         modal.classList.remove('is-active');
-    });
+        modal.classList.remove('is-closing');
+    }, 300); // 300ms = durata dell'animazione
+}
 
     modal.querySelector('.carousel-next').addEventListener('click', () => {
         const items = modal.querySelectorAll('.carousel-item');
