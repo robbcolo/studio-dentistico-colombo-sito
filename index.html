@@ -860,6 +860,132 @@
   }
 }
 
+.treatment-buttons {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    max-height: 0;
+    margin-top: 1rem;
+    transition: opacity 1s ease, max-height 1.2s ease;
+}
+
+/* Colore rosso per il pulsante in tutte le versioni */
+.treatment-buttons .button.is-info {
+    background: linear-gradient(120deg, #8a001c, #ff0033);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s ease;
+    border-color: transparent;
+}
+
+.treatment-buttons .button.is-info:hover {
+    background-position: 0 0;
+}
+
+
+/* Stile specifico per desktop */
+@media (min-width: 769px) {
+    .treatment-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+    }
+
+    .treatment-item:hover .treatment-buttons {
+        opacity: 1;
+        max-height: 50px;
+    }
+}
+
+/* Stile specifico per mobile */
+@media (max-width: 768px) {
+    .treatment-item.clicked .treatment-buttons {
+        opacity: 1;
+        max-height: 50px;
+    }
+}
+
+/* Stile per carousel foto trattamenti */
+.modal {
+    display: none;
+}
+
+.modal.is-active {
+    display: flex;
+}
+
+.modal-content {
+    margin: 20px;
+    max-height: 80vh;
+    width: 80vw;
+    background: transparent;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.carousel-items {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -915,8 +1041,16 @@
               <p class="treatment-description has-text-centered">
                 Branca dell'odontoiatria atta a ripristinare l'integrità e la funzione degli elementi dentari, occupandosi di prevenzione, diagnosi e trattamento delle carie.
               </p>
+              <div class="treatment-buttons has-text-centered">
+                <button class="button is-info is-small">
+                    <span class="icon">
+                        <i class="fas fa-images"></i>
+                    </span>
+                    <span>Foto</span>
+                </button>
             </div>
-          </div>
+        </div>
+    </div>
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
@@ -926,8 +1060,16 @@
               <p class="treatment-description has-text-centered">
                 Trattamento dei tessuti interni del dente per risolvere infezioni o traumi mediante la terapia canalare.
               </p>
+              <div class="treatment-buttons has-text-centered">
+                <button class="button is-info is-small">
+                    <span class="icon">
+                        <i class="fas fa-images"></i>
+                    </span>
+                    <span>Foto</span>
+                </button>
             </div>
-          </div>
+        </div>
+    </div>
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
@@ -1095,6 +1237,117 @@
       }
     });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Oggetto che mappa i trattamenti alle relative immagini
+    const treatmentPhotos = {
+        'Odontoiatria conservativa': [
+            'assets/images/studio/studio_1.jpg',
+            'assets/images/studio/sala_attesa.jpeg',
+            'assets/images/studio/tablet.jpeg'
+        ],
+        'Endodonzia': [
+            'assets/images/treatments/endodonzia1.jpg',
+            'assets/images/treatments/endodonzia2.jpg',
+            'assets/images/treatments/endodonzia3.jpg'
+        ],
+        // Aggiungi altri trattamenti seguendo lo stesso pattern
+    };
+
+    // Crea il modal per il carousel
+    const modalHTML = `
+        <div id="photoModal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div id="treatmentCarousel" class="carousel">
+                    <div class="carousel-items"></div>
+                    <button class="carousel-prev" aria-label="previous">❮</button>
+                    <button class="carousel-next" aria-label="next">❯</button>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Gestione click sui pulsanti foto
+    const treatmentCards = document.querySelectorAll('.treatment-item');
+    treatmentCards.forEach(card => {
+        const fotoButton = card.querySelector('.button.is-info');
+        if (fotoButton) {
+            fotoButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const treatmentName = card.querySelector('.treatment-text').textContent;
+                openPhotoCarousel(treatmentName);
+            });
+        }
+    });
+
+    // Funzione per aprire il carousel
+    function openPhotoCarousel(treatmentName) {
+        const modal = document.getElementById('photoModal');
+        const carouselItems = modal.querySelector('.carousel-items');
+        currentSlide = 0;
+        
+        // Pulisci il carousel
+        carouselItems.innerHTML = '';
+
+        // Aggiungi le foto al carousel
+        const photos = treatmentPhotos[treatmentName] || [];
+        photos.forEach((photoSrc, index) => {
+            carouselItems.innerHTML += `
+                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                    <img src="${photoSrc}" alt="${treatmentName} - Foto ${index + 1}">
+                </div>
+            `;
+        });
+
+        // Mostra il modal
+        modal.classList.add('is-active');
+        updateCarousel();
+    }
+
+    // Gestione controlli carousel
+    const modal = document.getElementById('photoModal');
+    let currentSlide = 0;
+
+    modal.querySelector('.modal-close').addEventListener('click', () => {
+        modal.classList.remove('is-active');
+    });
+
+    modal.querySelector('.modal-background').addEventListener('click', () => {
+        modal.classList.remove('is-active');
+    });
+
+    modal.querySelector('.carousel-next').addEventListener('click', () => {
+        const items = modal.querySelectorAll('.carousel-item');
+        currentSlide = (currentSlide + 1) % items.length;
+        updateCarousel();
+    });
+
+    modal.querySelector('.carousel-prev').addEventListener('click', () => {
+        const items = modal.querySelectorAll('.carousel-item');
+        currentSlide = (currentSlide - 1 + items.length) % items.length;
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        const items = modal.querySelectorAll('.carousel-item');
+        items.forEach((item, index) => {
+            if (index === currentSlide) {
+                item.classList.add('active');
+                item.style.transform = 'translateX(0)';
+                item.style.opacity = '1';
+            } else {
+                item.classList.remove('active');
+                const offset = index - currentSlide;
+                item.style.transform = `translateX(${100 * offset}%)`;
+                item.style.opacity = '0';
+            }
+        });
+    }
+});</script>
 
 
 
