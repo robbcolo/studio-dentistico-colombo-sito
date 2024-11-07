@@ -922,6 +922,51 @@
     animation: modalZoomIn 0.3s ease forwards;
 }
 
+/* Aumenta la dimensione del modal per desktop */
+@media (min-width: 769px) {
+    .modal-content {
+        width: 90vw; /* Aumenta la larghezza al 90% della viewport */
+        max-width: 1200px; /* Imposta una larghezza massima */
+        height: 90vh; /* Aumenta l'altezza al 90% della viewport */
+        margin: auto; /* Centra il contenuto */
+    }
+
+    .carousel {
+        width: 100%;
+        height: 100%; /* Occupa tutto lo spazio disponibile nel modal */
+    }
+
+    .carousel-item img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+}
+
+/* Mantieni le dimensioni attuali per mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95vw;
+        height: 80vh;
+    }
+}
+
+/* Stili comuni */
+.modal-content {
+    background-color: transparent;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.carousel {
+    background-color: black;
+    border-radius: 8px;
+}
+
+.carousel-item {
+    background-color: black;
+}
+
 /* Keyframes per le animazioni */
 @keyframes modalFadeIn {
     from {
