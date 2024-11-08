@@ -1094,6 +1094,77 @@
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+/* Stile per il contenitore del carousel con before/after */
+.carousel-comparison {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Stile per le immagini nel carousel */
+.carousel-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Immagine "before" */
+.image-before {
+    z-index: 1;
+    clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+}
+
+/* Slider centrale */
+.comparison-slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--position);
+    width: 4px;
+    background: #fff;
+    z-index: 2;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+}
+
+/* Maniglia dello slider */
+.slider-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #fff;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icone delle frecce nello slider */
+.slider-handle::before,
+.slider-handle::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: #333;
+}
+
+.slider-handle::before {
+    transform: rotate(45deg);
+    left: 8px;
+}
+
+.slider-handle::after {
+    transform: rotate(-45deg);
+    right: 8px;
+}
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1242,8 +1313,16 @@
               <p class="treatment-description has-text-centered">
                 Progettazione, realizzazione e riparazione di protesi dentarie, corone, ponti, per migliorare la funzionalità e l'estetica dentale dei pazienti.
               </p>
+              <div class="treatment-buttons has-text-centered">
+                <button class="button is-info is-small">
+                    <span class="icon">
+                        <i class="fas fa-images"></i>
+                    </span>
+                    <span>Foto</span>
+                </button>
             </div>
-          </div>
+        </div>
+    </div>
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
@@ -1349,16 +1428,44 @@
     // Oggetto che mappa i trattamenti alle relative immagini
     const treatmentPhotos = {
         'Odontoiatria conservativa': [
-            'assets/images/studio/studio_1.jpg',
-            'assets/images/studio/sala_attesa.jpeg',
-            'assets/images/studio/tablet.jpeg'
-        ],
+        {
+            type: 'comparison',
+            before: 'assets/images/casi/lillo1.jpg',
+            after: 'assets/images/casi/lillo2.jpg'
+        },
+        {
+            type: 'single',
+            src: 'assets/images/studio/studio_1.jpg',
+        },
+        {
+            type: 'single',
+            src: 'assets/images/studio/sala_attesa.jpeg',
+        },
+        {
+            type: 'single',
+            src: 'assets/images/studio/tablet.jpeg',
+        }
+    ],
         'Endodonzia': [
-            'assets/images/treatments/endodonzia1.jpg',
-            'assets/images/treatments/endodonzia2.jpg',
-            'assets/images/treatments/endodonzia3.jpg'
+        {
+            type: 'single',
+            src: 'assets/images/studio/sala_attesa.jpeg'
+        },
+        {
+            type: 'comparison',
+            before: 'assets/images/studio/studio_1.jpg',
+            after: 'assets/images/studio/sala_attesa.jpeg'
+          }
         ],
         // Aggiungi altri trattamenti seguendo lo stesso pattern
+        'Protesi': [
+        {
+          type: 'comparison',
+          before: 'assets/images/casi/lillo1.jpg',
+          after: 'assets/images/casi/lillo2.jpg'
+        }
+
+        ]
     };
 
     // Crea il modal per il carousel
@@ -1401,18 +1508,83 @@
 
         // Aggiungi le foto al carousel
         const photos = treatmentPhotos[treatmentName] || [];
-        photos.forEach((photoSrc, index) => {
+        photos.forEach((photo, index) => {
+        if (photo.type === 'comparison') {
             carouselItems.innerHTML += `
                 <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                    <img src="${photoSrc}" alt="${treatmentName} - Foto ${index + 1}">
+                    <div class="carousel-comparison">
+                        <img src="${photo.after}" class="carousel-image image-after" alt="Dopo">
+                        <img src="${photo.before}" class="carousel-image image-before" alt="Prima">
+                        <div class="comparison-slider">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
                 </div>
             `;
-        });
+        } else {
+            carouselItems.innerHTML += `
+                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                    <img src="${photo.src}" alt="${treatmentName} - Foto ${index + 1}">
+                </div>
+            `;
+        }
+    });
 
         // Mostra il modal
         modal.classList.add('is-active');
         updateCarousel();
+        initializeSliders(); // Inizializza gli slider per le foto before/after
     }
+
+    // Per gestire gli slider //
+    function initializeSliders() {
+    const containers = document.querySelectorAll('.carousel-comparison');
+    containers.forEach(container => {
+        if (!container.dataset.initialized) {
+            const slider = container.querySelector('.comparison-slider');
+            let isSliding = false;
+
+            function updateSliderPosition(x) {
+                const rect = container.getBoundingClientRect();
+                let position = ((x - rect.left) / rect.width) * 100;
+                position = Math.min(Math.max(position, 0), 100);
+                container.style.setProperty('--position', `${position}%`);
+            }
+
+            slider.addEventListener('mousedown', () => {
+                isSliding = true;
+                updateSliderPosition(e.clientX);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isSliding) return;
+                updateSliderPosition(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isSliding = false;
+            });
+
+            slider.addEventListener('touchstart', () => {
+                isSliding = true;
+                updateSliderPosition(e.touches[0].clientX);
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isSliding) return;
+                e.preventDefault();
+                updateSliderPosition(e.touches[0].clientX);
+            }, { passive: false });
+
+            window.addEventListener('touchend', () => {
+                isSliding = false;
+            });
+
+            container.dataset.initialized = 'true';
+            container.style.setProperty('--position', '50%');
+        }
+    });
+}
 
     // Gestione controlli carousel
     const modal = document.getElementById('photoModal');
@@ -1464,8 +1636,55 @@ function closeModalWithAnimation() {
                 item.style.opacity = '0';
             }
         });
+    // Reinizializza gli slider dopo ogni cambio di slide
+    initializeSliders();
+}
+});
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.carousel-comparison');
+    const slider = document.querySelector('.comparison-slider');
+    let isSliding = false;
+
+    // Funzione per aggiornare la posizione dello slider
+    function updateSliderPosition(x) {
+        const rect = container.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+        position = Math.min(Math.max(position, 0), 100);
+        container.style.setProperty('--position', position + '%');
     }
-});</script>
+
+    // Eventi per il mouse
+    slider.addEventListener('mousedown', () => {
+        isSliding = true;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isSliding) return;
+        updateSliderPosition(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+        isSliding = false;
+    });
+
+    // Eventi per il touch
+    slider.addEventListener('touchstart', () => {
+        isSliding = true;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+        if (!isSliding) return;
+        updateSliderPosition(e.touches[0].clientX);
+    });
+
+    window.addEventListener('touchend', () => {
+        isSliding = false;
+    });
+});
+</script>
 
 
 
