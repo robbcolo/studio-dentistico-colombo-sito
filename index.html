@@ -459,7 +459,7 @@
       position: fixed;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 50%;
+      /*bottom: 50%;*/
       z-index: 99;
       width: auto;
       text-align: center;
@@ -469,6 +469,7 @@
     @media (max-width: 768px) {
       .floating-button-container {
         bottom:30%;
+        
       }
     }
 
@@ -476,6 +477,7 @@
     @media (min-width: 769px) {
       .floating-button-container {
         bottom: 30%; /* Modificato da 50% a 30% */
+        
     }
 }
 
@@ -565,8 +567,24 @@
       const button = document.getElementById('floatingContactBtn');
       const cnt = document.getElementById('floatingContactCnt');
       const contactSection = document.getElementById('contact');
+      const subtitle = document.querySelector('.animated-home .subtitle');
       let lastScrollTop = 0;
-  
+
+
+      const hero = document.querySelector('.hero'); // The hero container
+
+// Set initial position based on the bottom of the hero container
+function setInitialButtonPosition() {
+  const heroRect = hero.getBoundingClientRect();
+  const offsetFromBottom = window.innerHeight - heroRect.bottom;
+  const initialBottomPercentage = ((offsetFromBottom + 80) / window.innerHeight) * 100; // Add a small offset to position it below hero
+  cnt.style.bottom = `${initialBottomPercentage}%`;
+}
+
+// Run initial positioning
+setInitialButtonPosition();
+
+
       window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const contactSectionTop = contactSection?.offsetTop || Infinity;
@@ -584,13 +602,17 @@
         if (scrollTop > 100) {
           button.classList.add('is-scrolling');
           cnt.classList.add('is-scrolling');
+          cnt.style.bottom = '0%';
         } else {
           button.classList.remove('is-scrolling');
           cnt.classList.remove('is-scrolling');
+          setInitialButtonPosition();
         }
   
         lastScrollTop = scrollTop;
       });
+      // Recalculate button position on window resize
+    //window.addEventListener('resize', setInitialButtonPosition);
     });
 
   </script> 
@@ -1042,13 +1064,7 @@
 
 /* Stile specifico per desktop */
 @media (min-width: 769px) {
-    .treatment-buttons {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin-top: 0;
-    }
+    
 
     .treatment-item:hover .treatment-buttons {
         opacity: 1;
