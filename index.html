@@ -654,86 +654,104 @@
 
   <!-- Su di noi-->
   <style>
-    /* Stili per la sezione About */
-    .about-content {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
+    
+    /* About hero section */
+.about-hero {
+  position: relative;
+  width: 100vw;
+  height: 500px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
 
-    .about-description {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      text-align: center;
-      color: #333;
-      margin-bottom: 3rem;
-    }
+.about-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: zoomBg 20s infinite alternate ease-in-out;
 
-    /* Stili per il carousel dello studio */
-    .studio-carousel {
-      position: relative;
-      width: 100%;
-      height: 60vh;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+}
 
-    .studio-carousel .carousel-items {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+.about-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-    .studio-carousel .carousel-item {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 2s ease, transform 2s ease;
-    }
+.about-message {
+  width: 50%;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-out, transform 3s ease-out;
+}
 
-    .studio-carousel .carousel-item.active {
-      opacity: 1;
-      transform: scale(1);
-    }
+.animate-message {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1s ease-out, transform 3s ease-out;
+}
 
-    .studio-carousel .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* Animation for zooming in and out */
+@keyframes zoomBg {
+  from {
+    transform: scale(1.0);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
 
-    .studio-carousel .carousel-prev,
-    .studio-carousel .carousel-next {
-      display: none
-    }
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-    .studio-carousel .carousel-prev:hover,
-    .studio-carousel .carousel-next:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .about-hero {
+    height: 50vh;
+  }
 
-    .studio-carousel .carousel-prev {
-      left: 20px;
-    }
+  .about-hero-bg {
+    background-position: left 60%;
+  }
 
-    .studio-carousel .carousel-next {
-      right: 20px;
-    }
+  .about-content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+
+  .about-message {
+    width: 90%;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
 
 
-    @media (max-width: 768px) {
-      .studio-carousel {
-        height: 40vh;
-      }
-
-      .about-description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-      }
-    }
   </style>
 
   <body>
@@ -742,78 +760,74 @@
         <h2 class="section-title">Su di noi</h2>
       </div>
 
-      <div class="container">
-        <div class="treatments-hero">
-          <div class="treatments-hero-bg"></div>
-          <div class="treatments-content">
-            <div class="treatments-message">
-              Il nostro studio dentistico unisce professionalità, tecnologia e comfort
-            </div>
-          </div>
-        </div>
-
-        <div class="about-content">
-          <p class="about-description">
-            Situato nel cuore di Patti, il nostro studio dentistico rappresenta un punto di riferimento per l'eccellenza
-            in campo odontoiatrico. Dotato delle più moderne tecnologie e di un ambiente confortevole e accogliente,
-            offriamo ai nostri pazienti un'esperienza di cura all'avanguardia in un'atmosfera rilassante e
-            professionale.
-          </p>
-        </div>
-
-        <div class="studio-carousel">
-          <div class="carousel-items">
-            <div class="carousel-item active">
-              <img src="assets/images/studio/studio_1.jpg" alt="Studio dentistico">
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/studio/sala_attesa.jpeg" alt="Sala d'attesa">
-            </div>
-          </div>
-          <button class="carousel-prev" aria-label="previous">❮</button>
-          <button class="carousel-next" aria-label="next">❯</button>
+  <!-- About Hero Section -->
+  <div class="container">
+    <div class="about-hero">
+      <div class="about-hero-bg"></div>
+      <div class="about-content">
+        <div class="about-message">
+          Tecnologia all'avanguardia e professionalità al servizio del tuo sorriso
         </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const carousel = document.querySelector('.studio-carousel');
-      const items = carousel.querySelectorAll('.carousel-item');
-      let currentSlide = 0;
 
-      function updateCarousel() {
-        items.forEach((item, index) => {
-          if (index === currentSlide) {
-            item.classList.add('active');
-            item.style.transform = 'scale(1)';
-            item.style.opacity = '1';
-          } else {
-            item.classList.remove('active');
-            item.style.transform = 'scale(0.9)';
-            item.style.opacity = '0';
-          }
-        });
-      }
 
-      carousel.querySelector('.carousel-next').addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % items.length;
-        updateCarousel();
-      });
+        <script>
+         document.addEventListener('DOMContentLoaded', function () {
+  const images_about = [
+    'assets/images/studio/studio_1.jpg',
+    'assets/images/studio/tablet.jpeg',
+    'assets/images/studio/studio_1.jpg', 
+    'assets/images/studio/sala_attesa.jpeg'  
+  ];
+  const messages = [
+    'Situato nel cuore di Patti, il nostro studio dentistico rappresenta un punto di riferimento per l\'eccellenza',
+    'Dotato delle più moderne tecnologie e di un ambiente confortevole e accogliente',
+    'Siamo qui per offrirti lo studio più luminoso di sempre',
+    'Offriamo un\'atmosfera rilassante e professionale.'
+  ];
+  
+  const heroBg = document.querySelector('.about-hero-bg');
+  const message = document.querySelector('.about-message');
+  
+  let currentIndex = 0;
 
-      carousel.querySelector('.carousel-prev').addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + items.length) % items.length;
-        updateCarousel();
-      });
+  heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
+  message.textContent = messages[currentIndex];
+  message.classList.add('animate-message');
+  
+  // Function to switch to the next image and message
+  function switchContent() {
+    currentIndex = (currentIndex + 1) % images_about.length;
 
-      // Auto-play del carousel
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % items.length;
-        updateCarousel();
-      }, 5000);
-    });
-  </script>
+     // Update message with animation
+     message.classList.remove('animate-message');
+    setTimeout(() => {
+      message.textContent = messages[currentIndex];
+      message.classList.add('animate-message');
+    }, 1500); // Wait for the fade-out animation before changing the text
+
+    // Update background image
+    setTimeout(() => {
+      heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
+    }, 1000);
+    
+
+   
+    
+  }
+
+  // Start the cycle
+  setInterval(switchContent, 5000); // Change image and message every 20 seconds
+  
+  // Trigger the first message animation
+  message.classList.add('animate-message');
+});
+
+        </script>
+        
 
 
   <!-- Custom CSS -->
