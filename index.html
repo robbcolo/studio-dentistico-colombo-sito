@@ -581,22 +581,33 @@
       const button = document.getElementById('floatingContactBtn');
       const cnt = document.getElementById('floatingContactCnt');
       const contactSection = document.getElementById('contact');
-      const subtitle = document.querySelector('.animated-home .subtitle');
       let lastScrollTop = 0;
 
 
       const hero = document.querySelector('.hero'); // The hero container
+    const subtitle = document.querySelector('.animated-home .subtitle'); // The subtitle container
 
-      // Set initial position based on the bottom of the hero container
-      function setInitialButtonPosition() {
-        const heroRect = hero.getBoundingClientRect();
-        const offsetFromBottom = window.innerHeight - heroRect.bottom;
-        const initialBottomPercentage = ((offsetFromBottom + 80) / window.innerHeight) * 100; // Add a small offset to position it below hero
-        cnt.style.bottom = `${initialBottomPercentage}%`;
-      }
+    // Function to calculate the midpoint between the bottom of the hero and subtitle
+    function setInitialButtonPosition() {
+      const heroRect = hero.getBoundingClientRect();
+      const subtitleRect = subtitle.getBoundingClientRect();
 
-      // Run initial positioning
-      setInitialButtonPosition();
+      // Calculate the distance between the bottom of the hero and the bottom of the subtitle
+      const distance = subtitleRect.top - heroRect.bottom;
+
+      // Calculate the midpoint between the bottom of hero and the bottom of subtitle
+      const midpoint = heroRect.bottom + distance / 2;
+
+      // Calculate the percentage of the distance from the bottom of the screen
+      const offsetFromBottom = window.innerHeight - midpoint;
+      const initialBottomPercentage = (offsetFromBottom / window.innerHeight) * 100;
+
+      // Set the button position based on the midpoint
+      cnt.style.bottom = `${initialBottomPercentage}%`;
+    }
+
+    // Run initial positioning when the page loads
+    setInitialButtonPosition();
 
 
       window.addEventListener('scroll', function () {
@@ -1067,8 +1078,9 @@
       justify-content: center;
       opacity: 0;
       max-height: 0;
-      margin-top: 1rem;
-      transition: opacity 1s ease, max-height 1.2s ease;
+      margin-top: 1.2rem;
+      
+      transition: opacity 2.5s ease, max-height 1.2s ease;
     }
 
     /* Colore rosso per il pulsante in tutte le versioni */
@@ -1078,6 +1090,7 @@
       background-position: 100% 0;
       transition: background-position 0.5s ease;
       border-color: transparent;
+      border-radius: 10px;
     }
 
     .treatment-buttons .button.is-info:hover {
