@@ -1111,6 +1111,53 @@
       background-position: 0 0;
     }
 
+    /* Nuovo stile per il pulsante FAQ */
+  .treatment-buttons .button.is-success {
+    background: linear-gradient(120deg, #008a1c, #33ff00);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s ease;
+    border-color: transparent;
+    border-radius: 10px;
+  }
+
+  .treatment-buttons .button.is-success:hover {
+    background-position: 0 0;
+  }
+
+  /* Stile per il contenitore FAQ */
+  .treatment-faq {
+    margin-top: 1rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    padding: 0 1rem;
+  }
+
+  .treatment-faq.is-active {
+    opacity: 1;
+    max-height: 500px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .faq-question {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+  }
+
+  /* Modifica allo spazio tra i pulsanti */
+  .treatment-buttons .button {
+    margin: 0 0.3rem;
+  }
 
     /* Stile specifico per desktop */
     @media (min-width: 769px) {
@@ -1413,6 +1460,7 @@
       }
     });
   </script>
+  
 
 
     <!-- Treatments Section -->
@@ -1457,6 +1505,20 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">Quanto dura il trattamento conservativo?</div>
+                <div class="faq-answer">La durata dipende dall'estensione della carie, ma generalmente una seduta dura tra i 30 e i 60 minuti.</div>
+                <div class="faq-question">È doloroso?</div>
+                <div class="faq-answer">No, il trattamento viene eseguito in anestesia locale e risulta indolore.</div>
+                <div class="faq-question">Quanto dura una ricostruzione dentale?</div>
+                <div class="faq-answer">La durata dipende da diversi fattori, come la posizione del dente e l’igiene orale del paziente. Con una buona manutenzione, le ricostruzioni possono durare diversi anni.</div>
               </div>
             </div>
           </div>
@@ -1476,6 +1538,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">Cos'è un trattamento canalare (devitalizzazione)?</div>
+                <div class="faq-answer">È una procedura che elimina l'infezione interna del dente e ne permette il recupero senza necessità di estrazione. Consiste nella rimozione del tessuto infetto e nella sigillatura del canale radicolare.</div>
+                <div class="faq-question">Il trattamento canalare è doloroso?</div>
+                <div class="faq-answer">La devitalizzazione viene eseguita con anestesia locale, quindi il trattamento in sé non è doloroso.</div>
               </div>
             </div>
           </div>
@@ -1495,9 +1569,21 @@
                   </span>
                   <span>Foto</span>
                 </button>
-              </div>
+                <button class="button is-success is-small faq-button">
+                <span class="icon">
+                  <i class="fas fa-question-circle"></i>
+                </span>
+                <span>FAQ</span>
+              </button>
+            </div>
+            <div class="treatment-faq">
+              <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+              <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+              <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+              <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente.</div>
             </div>
           </div>
+        </div>
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
@@ -1515,6 +1601,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">Posso rimuovere gli allineatori Invisalign in ogni momento?</div>
+                <div class="faq-answer">Sì, uno dei vantaggi principali degli Invisalign è la possibilità di rimuoverli per mangiare, bere e per una pulizia efficace dei denti. L’importante è indossarli 20-22 ore al giorno per ottenere i risultati migliori.</div>
+                <div class="faq-question">Quanto dura il trattamento Invisalign?</div>
+                <div class="faq-answer">La durata del trattamento varia da persona a persona, ma in media può durare dai 12 ai 18 mesi. Tuttavia, il tempo preciso sarà valutato dallo specialista in base al tuo caso specifico.</div>
               </div>
             </div>
           </div>
@@ -1534,6 +1632,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1553,6 +1663,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1572,6 +1694,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1592,6 +1726,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1611,6 +1757,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1631,6 +1789,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1651,6 +1821,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1670,6 +1852,18 @@
                   </span>
                   <span>Foto</span>
                 </button>
+                <button class="button is-success is-small faq-button">
+                  <span class="icon">
+                    <i class="fas fa-question-circle"></i>
+                  </span>
+                  <span>FAQ</span>
+                </button>
+              </div>
+              <div class="treatment-faq">
+                <div class="faq-question">A che età è consigliato iniziare un trattamento ortodontico?</div>
+                <div class="faq-answer">Dipende dal tipo di problema, ma in genere una prima visita ortodontica è consigliata intorno ai 6-7 anni, per valutare se è necessario un intervento precoce o se attendere la dentizione definitiva.</div>
+                <div class="faq-question">Gli apparecchi ortodontici sono dolorosi?</div>
+                <div class="faq-answer">L’installazione dell’apparecchio non è dolorosa, ma è normale sentire un po' di fastidio nei giorni successivi all'applicazione o dopo ogni regolazione, un fastidio che diminuisce rapidamente</div>
               </div>
             </div>
           </div>
@@ -1715,18 +1909,33 @@
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const treatmentItems = document.querySelectorAll('.treatment-item');
-
-      if (window.innerWidth <= 768) { // Apply for mobile screen sizes
-        treatmentItems.forEach(item => {
-          item.addEventListener('click', function () {
-            // Toggle 'clicked' class on mobile for expansion/collapse
-            item.classList.toggle('clicked');
-          });
-        });
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+  // Gestione click sul pulsante FAQ
+  document.querySelectorAll('.faq-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.stopPropagation(); // Previene la propagazione del click
+      const card = this.closest('.treatment-item');
+      const faqSection = card.querySelector('.treatment-faq');
+      faqSection.classList.toggle('is-active');
     });
+  });
+
+  // Gestione del click sulla card per mobile (codice esistente modificato)
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.treatment-item').forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.toggle('clicked');
+        // Chiudi la sezione FAQ quando si chiude la card
+        if (!this.classList.contains('clicked')) {
+          const faqSection = this.querySelector('.treatment-faq');
+          if (faqSection) {
+            faqSection.classList.remove('is-active');
+          }
+        }
+      });
+    });
+  }
+});
   </script>
 
   <script>
