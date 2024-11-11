@@ -268,6 +268,36 @@
       }
     }
 
+    /* Nuovo stile per il dropdown dei trattamenti */
+.navbar-item.has-dropdown {
+  position: relative;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0px 0 1px rgba(10,10,10,.02);
+  z-index: 20;
+  display: none;
+}
+
+.navbar-item.has-dropdown:hover .navbar-dropdown {
+  display: block;
+}
+
+.navbar-dropdown .navbar-item {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.navbar-dropdown .navbar-item:hover {
+  background-color: #f5f5f5;
+}
+
     /* Add transition to the animated navbar item */
     .animated-home {
       animation: fadeInScale 2.0s ease forwards;
@@ -371,7 +401,25 @@
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
 
-          <a class="navbar-item is-rounded is-primary" href="#treatments">Trattamenti</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link is-rounded is-primary" href="#treatments">Trattamenti</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-rounded" href="#treatments">Tutti i Trattamenti</a>
+              <hr class="navbar-divider">
+              <a class="navbar-item is-rounded" href="#conservativa">Odontoiatria Conservativa</a>
+              <a class="navbar-item is-rounded" href="#endodonzia">Endodonzia</a>
+              <a class="navbar-item is-rounded" href="#ortodonzia">Ortodonzia</a>
+              <a class="navbar-item is-rounded" href="#invisalign">Ortodonzia Invisibile</a>
+              <a class="navbar-item is-rounded" href="#chirurgia">Chirurgia Orale</a>
+              <a class="navbar-item is-rounded" href="#implantologia">Implantologia</a>
+              <a class="navbar-item is-rounded" href="#sbiancamento">Sbiancamento Dentale</a>
+              <a class="navbar-item is-rounded" href="#protesi">Protesi</a>
+              <a class="navbar-item is-rounded" href="#igiene">Igiene Dentale</a>
+              <a class="navbar-item is-rounded" href="#estetica">Odontoiatria Estetica</a>
+              <a class="navbar-item is-rounded" href="#parodontologia">Parodontologia</a>
+              <a class="navbar-item is-rounded" href="#pedodonzia">Odontoiatria Pediatrica</a>
+            </div>
+          </div>
           <a class="navbar-item is-rounded is-primary" href="#members">Staff</a>
           <a class="navbar-item is-rounded is-primary" href="#orari">Orari</a>
           <a class="navbar-item is-rounded is-primary" href="#contact">Contattaci</a>
@@ -1501,7 +1549,7 @@
           <!-- Each treatment item -->
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/conservativa.png" alt="Treatment 1">
+              <img src="assets/images/stock_examples/conservativa.png" alt="Treatment 1" id="conservativa">
               <span class="treatment-text">Odontoiatria conservativa</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1535,7 +1583,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/endodonzia.png" alt="Treatment 2">
+              <img src="assets/images/stock_examples/endodonzia.png" alt="Treatment 2" id="endodonzia">
               <span class="treatment-text">Endodonzia</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1566,7 +1614,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/ortodonzia.png" alt="Treatment 3">
+              <img src="assets/images/stock_examples/ortodonzia.png" alt="Treatment 3" id="ortodonzia">
               <span class="treatment-text">Ortodonzia</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1597,7 +1645,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/invisalign.png" alt="Treatment 4">
+              <img src="assets/images/stock_examples/invisalign.png" alt="Treatment 4" id="invisalign">
               <span class="treatment-text">Ortodonzia invisibile Invisalign®</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1631,7 +1679,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/chirurgia.png" alt="Treatment 5">
+              <img src="assets/images/stock_examples/chirurgia.png" alt="Treatment 5" id="chirurgia">
               <span class="treatment-text">Chirurgia orale</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1664,7 +1712,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/implanto.png" alt="Treatment 6">
+              <img src="assets/images/stock_examples/implanto.png" alt="Treatment 6" id="implantologia">
               <span class="treatment-text">Implantologia</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1695,7 +1743,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/sbiancamento.png" alt="Treatment 7">
+              <img src="assets/images/stock_examples/sbiancamento.png" alt="Treatment 7" id="sbiancamento">
               <span class="treatment-text">Sbiancamento dentale</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1726,7 +1774,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/protesi.png" alt="Treatment 8">
+              <img src="assets/images/stock_examples/protesi.png" alt="Treatment 8" id="protesi">
               <i class="fas fa-chevron-down toggle-icon"></i>
               <span class="treatment-text">Protesi</span>
               <p class="treatment-description has-text-centered">
@@ -1760,7 +1808,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/ablazione.png" alt="Treatment 9">
+              <img src="assets/images/stock_examples/ablazione.png" alt="Treatment 9" id="igiene">
               <span class="treatment-text">Igiene dentale</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1793,7 +1841,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/faccette.png" alt="Treatment 10">
+              <img src="assets/images/stock_examples/faccette.png" alt="Treatment 10" id="estetica">
               <span class="treatment-text">Odontoiatria estetica</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1827,7 +1875,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/parodonto.png" alt="Treatment 11">
+              <img src="assets/images/stock_examples/parodonto.png" alt="Treatment 11" id="parodontologia">
               <span class="treatment-text">Parodontologia</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
@@ -1861,7 +1909,7 @@
 
           <div class="column is-12-mobile is-4-tablet is-3-desktop">
             <div class="treatment-item card">
-              <img src="assets/images/stock_examples/pedodonzia.png" alt="Treatment 12">
+              <img src="assets/images/stock_examples/pedodonzia.png" alt="Treatment 12" id="pedodonzia">
               <span class="treatment-text">Odontoiatria pediatrica</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
               <p class="treatment-description has-text-centered">
