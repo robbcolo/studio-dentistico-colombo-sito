@@ -779,57 +779,75 @@
 </section>
 
         <script>
-         document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const images_about = [
+    'assets/images/studio/studio2.jpg',
+    'assets/images/studio/vcamera.jpg',
     'assets/images/studio/xsmart.jpg',
-    'assets/images/studio/tablet.jpeg',
-    'assets/images/studio/studio_1.jpg', 
-    'assets/images/studio/sala_attesa.jpeg'  
+    'assets/images/studio/laurearob.jpg',
+    'assets/images/studio/fam.jpg', 
+    'assets/images/studio/laureaalf.jpg'  
   ];
   const messages = [
+    'Prova 1',
     'Situato nel cuore di Patti, il nostro studio dentistico rappresenta un punto di riferimento per l\'eccellenza',
     'Dotato delle più moderne tecnologie e di un ambiente confortevole e accogliente',
     'Siamo qui per offrirti lo studio più luminoso di sempre',
+    'Prova2',
     'Offriamo un\'atmosfera rilassante e professionale.'
   ];
   
   const heroBg = document.querySelector('.about-hero-bg');
   const message = document.querySelector('.about-message');
   
+  // Creiamo un secondo div per la dissolvenza
+  const nextBg = document.createElement('div');
+  nextBg.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    animation: zoomBg 20s infinite alternate ease-in-out;
+  `;
+  heroBg.parentNode.insertBefore(nextBg, heroBg.nextSibling);
+  
   let currentIndex = 0;
+  let isFirstBg = true;
 
+  heroBg.style.transition = 'opacity 1s ease-in-out';
   heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
   message.textContent = messages[currentIndex];
   message.classList.add('animate-message');
   
-  // Function to switch to the next image and message
   function switchContent() {
     currentIndex = (currentIndex + 1) % images_about.length;
 
-     // Update message with animation
-     message.classList.remove('animate-message');
+    message.classList.remove('animate-message');
     setTimeout(() => {
       message.textContent = messages[currentIndex];
       message.classList.add('animate-message');
-    }, 1500); // Wait for the fade-out animation before changing the text
-
-    // Update background image
-    setTimeout(() => {
-      heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
     }, 1000);
-    
 
-   
-    
+    if (isFirstBg) {
+      nextBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
+      nextBg.style.opacity = '1';
+      heroBg.style.opacity = '0';
+    } else {
+      heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${images_about[currentIndex]}')`;
+      heroBg.style.opacity = '1';
+      nextBg.style.opacity = '0';
+    }
+    isFirstBg = !isFirstBg;
   }
 
-  // Start the cycle
-  setInterval(switchContent, 5000); // Change image and message every 20 seconds
-  
-  // Trigger the first message animation
+  setInterval(switchContent, 5000);
   message.classList.add('animate-message');
 });
-
         </script>
         
 
