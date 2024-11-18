@@ -734,18 +734,19 @@
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .about-hero {
-    height: 50vh;
-  }
-
-  .about-hero-bg {
-    background-position: left 60%;
+    height: auto;
+    padding-top: 140%; /* Rapporto 16:9 solo su mobile */
   }
 
   .about-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
   }
 
   .about-message {
