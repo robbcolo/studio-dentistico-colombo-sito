@@ -404,56 +404,6 @@
       });
     });
   </script>
-  <!-- stronzata che si può togliere-->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toothIcon = document.querySelector('.navbar-item i.fa-tooth');
-      let clickCount = 0; // Initialize click counter
-      let isAnimating = false; // Flag to track animation status
-
-      toothIcon.addEventListener('click', () => {
-        // Increment the click counter
-        clickCount++;
-        if (isAnimating) return; // Exit if animation is active
-        isAnimating = true;
-        // Add the spin class
-        toothIcon.classList.add('spin');
-
-        // Check if the click count has reached 5
-        if (clickCount > 4) {
-          let confettiInterval = setInterval(() => {
-            confetti({
-              particleCount: 80, // Number of confetti particles
-              spread: 60, // Spread of confetti
-              origin: { y: 0.3 } // Launch from the middle of the top
-            });
-            confetti({
-              particleCount: 50, // Number of confetti particles
-              spread: 70, // Spread of confetti
-              origin: { y: 0.6 } // Launch from the middle of the top
-            });
-            confetti({
-              particleCount: 80, // Number of confetti particles
-              spread: 80, // Spread of confetti
-              origin: { y: 0.9 } // Launch from the middle of the top
-            });
-          }, 500); // Launch confetti every 0.5 secon
-          setTimeout(() => {
-            clearInterval(confettiInterval); // Stop confetti after moving back
-          }, 5000);
-          // Reset the click counter
-          clickCount = 0; // Reset the counter after launching confetti
-        }
-
-        // Remove the class after the animation ends
-        setTimeout(() => {
-          toothIcon.classList.remove('spin');
-          isAnimating = false; // Reset the animation flag
-        }, 500); // Match this duration to the CSS animation duration
-      });
-    });
-  </script>
 
   <!-- Title Section -->
 
@@ -906,7 +856,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* Subtitle styling */
     h3.subtitle {
-      color: rgb(255, 0, 0);
+      color: #0166b1;
       font-weight: bold;
       margin-bottom: 2rem;
     }
